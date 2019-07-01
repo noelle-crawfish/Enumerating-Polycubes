@@ -1,5 +1,3 @@
-This is a sample student repository for the Wolfram Summer School, you should clone or fork this repository to get started.
-
 ## GETTING STARTED
 
 ### Create a GitHub account
