@@ -1,0 +1,2766 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     99000,       2758]
+NotebookOptionsPosition[     92444,       2624]
+NotebookOutlinePosition[     93250,       2651]
+CellTagsIndexPosition[     93207,       2648]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ StyleBox[" Enumerating ",
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->RGBColor[
+   0.9725490196078431, 0.8313725490196079, 0.34901960784313724`]],
+ StyleBox["Polycubes ",
+  IgnoreSpellCheck->True,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0],
+  Background->RGBColor[
+   0.9725490196078431, 0.8313725490196079, 0.34901960784313724`]],
+ " "
+}], "Title",
+ CellChangeTimes->{{3.770055572438499*^9, 3.7700555729498453`*^9}, {
+   3.770055604008165*^9, 3.7700556066618843`*^9}, {3.7712568627876167`*^9, 
+   3.771256871537321*^9}, {3.7716200580395117`*^9, 3.771620084462653*^9}, 
+   3.7716208134384527`*^9},ExpressionUUID->"49ab34ee-bfd5-49f5-beef-\
+400d3cc456dd"],
+
+Cell[TextData[StyleBox["Noelle Crawford",
+ FontWeight->"Bold"]], "Text",
+ CellChangeTimes->{{3.549624168509506*^9, 3.549624171985794*^9}, {
+  3.549624508772977*^9, 3.549624510775043*^9}, {3.5498187159613867`*^9, 
+  3.5498187170087957`*^9}, {3.549819049020514*^9, 3.5498190533440437`*^9}, {
+  3.77005561844785*^9, 3.7700556489651537`*^9}, {3.771266927860199*^9, 
+  3.771266930523817*^9}},ExpressionUUID->"94536f76-3fd2-4bf6-b228-\
+fa93ec9acae9"],
+
+Cell[TextData[StyleBox["Jeremy Stratton",
+ FontWeight->"Bold"]], "Text",
+ CellChangeTimes->{{3.549624515773694*^9, 3.5496245246892014`*^9}, {
+  3.5498187208956137`*^9, 3.5498187221413403`*^9}, {3.5498190558319674`*^9, 
+  3.54981906151682*^9}, {3.770055624686027*^9, 3.770055659820487*^9}, {
+  3.771619888840399*^9, 
+  3.771619913290914*^9}},ExpressionUUID->"b70c649b-a958-4202-9f22-\
+238ea1f9c7d4"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox[" What are Polycubes? ",
+ FontWeight->"Bold",
+ FontColor->GrayLevel[0],
+ Background->RGBColor[
+  0.9725490196078431, 0.8313725490196079, 0.34901960784313724`]]], "Section",
+ CellChangeTimes->{{3.771619930637877*^9, 3.771619935831846*^9}, {
+  3.77161998050849*^9, 3.7716200053694687`*^9}, {3.771620038062283*^9, 
+  3.7716200394197474`*^9}, {3.771620111916321*^9, 3.7716201133073*^9}, {
+  3.771621571333662*^9, 3.771621574035007*^9}},
+ FontColor->GrayLevel[
+  0],ExpressionUUID->"e89b947b-3ae5-4921-a96b-8ce4335902cb"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Rendered Forms",
+ FontWeight->"Bold",
+ FontColor->GrayLevel[0]]], "Subsection",
+ CellChangeTimes->{{3.7716205736979637`*^9, 3.771620576540431*^9}},
+ FontColor->GrayLevel[
+  0],ExpressionUUID->"9402553f-f65b-4254-99b9-713ff45da3c0"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"sample1", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", " ", "1", ",", " ", "1"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", " ", "2", ",", " ", "1"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", " ", "3", ",", " ", "1"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", " ", "2", ",", " ", "2"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"sample2", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", " ", "1", ",", " ", "1"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", " ", "2", ",", " ", "1"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", " ", "3", ",", " ", "1"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", " ", "2", ",", " ", "2"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", " ", "3", ",", " ", "2"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"2", ",", " ", "3", ",", " ", "2"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"yellow", " ", "=", " ", 
+    RowBox[{"RGBColor", "[", 
+     RowBox[{
+      RowBox[{"248", "/", "255"}], ",", " ", 
+      RowBox[{"212", "/", "255"}], ",", " ", 
+      RowBox[{"89", "/", "255"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"3", "-", 
+    RowBox[{
+    "dimensional", " ", "rendering", " ", "of", " ", "a", " ", "given", " ", 
+     "polycube"}]}], " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ClearAll", "[", "renderPolycube", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"renderPolycube", "[", "pc_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Style", "[", 
+       RowBox[{
+        RowBox[{"Cuboid", "[", 
+         RowBox[{"#", ",", " ", 
+          RowBox[{"#", " ", "+", " ", "1"}]}], "]"}], ",", " ", "yellow"}], 
+       "]"}], "&"}], " ", "/@", " ", "pc"}], ")"}], " ", "//", " ", 
+   RowBox[{
+    RowBox[{"Graphics3D", "[", 
+     RowBox[{"#", ",", " ", 
+      RowBox[{"Boxed", "\[Rule]", " ", "False"}], ",", " ", 
+      RowBox[{"Lighting", "\[Rule]", "\"\<Neutral\>\""}]}], "]"}], 
+    "&"}]}]}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.771620605511368*^9, 3.771620614078969*^9}, {
+  3.7716209172019863`*^9, 3.77162095139473*^9}, {3.771621194586093*^9, 
+  3.7716212153538446`*^9}, {3.7716212817775908`*^9, 3.771621306366541*^9}, {
+  3.771621360621467*^9, 3.771621424017334*^9}},
+ CellLabel->
+  "In[236]:=",ExpressionUUID->"d53c7fd8-92f7-4328-8732-125c3d60017e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"renderPolycube", "[", "sample1", "]"}]], "Input",
+ CellChangeTimes->{{3.771621416066065*^9, 3.771621431081964*^9}},
+ CellLabel->
+  "In[172]:=",ExpressionUUID->"afdab537-b99b-42d1-880c-b5d5352a4325"],
+
+Cell[BoxData[
+ Graphics3DBox[{
+   {RGBColor[
+     Rational[248, 255], 
+     Rational[212, 255], 
+     Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+   {RGBColor[
+     Rational[248, 255], 
+     Rational[212, 255], 
+     Rational[89, 255]], CuboidBox[{1, 2, 1}, {2, 3, 2}]}, 
+   {RGBColor[
+     Rational[248, 255], 
+     Rational[212, 255], 
+     Rational[89, 255]], CuboidBox[{1, 3, 1}, {2, 4, 2}]}, 
+   {RGBColor[
+     Rational[248, 255], 
+     Rational[212, 255], 
+     Rational[89, 255]], CuboidBox[{1, 2, 2}, {2, 3, 3}]}},
+  Boxed->False,
+  ImageSize->{355.45435345592983`, 284.5109106107976},
+  ImageSizeRaw->Automatic,
+  Lighting->"Neutral",
+  ViewPoint->{2.4882287421048073`, -1.2454236420015619`, -1.9255227027763373`},
+  ViewVertical->{0.9757495375890157, -0.1264757546913721, 
+   0.17865252130902057`}]], "Output",
+ CellChangeTimes->{
+  3.771621207010602*^9, {3.771621409556265*^9, 3.771621431619033*^9}},
+ CellLabel->
+  "Out[172]=",ExpressionUUID->"54b5b779-e2fc-445a-a63d-c9bd5504c6cb"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"renderPolycube", "[", "sample2", "]"}]], "Input",
+ CellChangeTimes->{{3.771621469242283*^9, 3.7716214725402*^9}},
+ CellLabel->
+  "In[175]:=",ExpressionUUID->"bace21e6-57d8-4ca8-b930-221b6c4dfe92"],
+
+Cell[BoxData[
+ Graphics3DBox[{
+   {RGBColor[
+     Rational[248, 255], 
+     Rational[212, 255], 
+     Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+   {RGBColor[
+     Rational[248, 255], 
+     Rational[212, 255], 
+     Rational[89, 255]], CuboidBox[{1, 2, 1}, {2, 3, 2}]}, 
+   {RGBColor[
+     Rational[248, 255], 
+     Rational[212, 255], 
+     Rational[89, 255]], CuboidBox[{1, 3, 1}, {2, 4, 2}]}, 
+   {RGBColor[
+     Rational[248, 255], 
+     Rational[212, 255], 
+     Rational[89, 255]], CuboidBox[{1, 2, 2}, {2, 3, 3}]}, 
+   {RGBColor[
+     Rational[248, 255], 
+     Rational[212, 255], 
+     Rational[89, 255]], CuboidBox[{1, 3, 2}, {2, 4, 3}]}, 
+   {RGBColor[
+     Rational[248, 255], 
+     Rational[212, 255], 
+     Rational[89, 255]], CuboidBox[{2, 3, 2}, {3, 4, 3}]}},
+  Boxed->False,
+  Lighting->"Neutral",
+  ViewPoint->{1.3, -2.4, 2.},
+  ViewVertical->{0., 0., 1.}]], "Output",
+ CellChangeTimes->{3.771621528344411*^9},
+ CellLabel->
+  "Out[175]=",ExpressionUUID->"a16d8163-050d-4711-8d84-a3d5c701d0d0"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Tensor Forms",
+ FontWeight->"Bold",
+ FontColor->GrayLevel[0]]], "Subsection",
+ CellChangeTimes->{{3.7716205736979637`*^9, 3.771620576540431*^9}, {
+  3.77162155437638*^9, 3.7716215578536377`*^9}},
+ FontColor->GrayLevel[
+  0],ExpressionUUID->"c78558fc-23c1-4431-9d9c-08e8308aa51c"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Representations",
+ FontWeight->"Bold",
+ FontSlant->"Italic",
+ FontColor->GrayLevel[0]]], "Subsubsection",
+ CellChangeTimes->{{3.771621645062068*^9, 
+  3.771621647987598*^9}},ExpressionUUID->"3b8fb4ba-9be8-4f3d-886c-\
+4f0482d7071e"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Generate", " ", "the", " ", "tensor", " ", "representation", " ", "given",
+     " ", "a", " ", "set", " ", "of", " ", "points"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"ClearAll", "[", "generateTensor", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"generateTensor", "[", "pts_", "]"}], ":=", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{"Block", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"n", ",", " ", "t"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"n", " ", "=", " ", 
+         RowBox[{"Length", "@", "pts"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"t", " ", "=", " ", 
+         RowBox[{"ConstantArray", "[", 
+          RowBox[{"0", ",", " ", 
+           RowBox[{"{", 
+            RowBox[{"n", ",", " ", "n", ",", " ", "n"}], "}"}], ",", " ", 
+           "SparseArray"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"t", "\[LeftDoubleBracket]", 
+               RowBox[{
+               "#", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+               "\[RightDoubleBracket]"}], "\[LeftDoubleBracket]", 
+              RowBox[{
+              "#", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+              "\[RightDoubleBracket]"}], "\[LeftDoubleBracket]", 
+             RowBox[{
+             "#", "\[LeftDoubleBracket]", "3", "\[RightDoubleBracket]"}], 
+             "\[RightDoubleBracket]"}], " ", "=", " ", "1"}], ")"}], "&"}], 
+         " ", "/@", " ", "pts"}], ";", " ", "t"}]}], "\[IndentingNewLine]", 
+      "]"}], ")"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"generateTensor", "[", 
+     RowBox[{"pts_", ",", " ", "n_"}], "]"}], ":=", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{"Block", "[", 
+      RowBox[{
+       RowBox[{"{", "t", "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"t", " ", "=", " ", 
+         RowBox[{"ConstantArray", "[", 
+          RowBox[{"0", ",", " ", 
+           RowBox[{"{", 
+            RowBox[{"n", ",", " ", "n", ",", " ", "n"}], "}"}], ",", " ", 
+           "SparseArray"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"t", "\[LeftDoubleBracket]", 
+               RowBox[{
+               "#", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+               "\[RightDoubleBracket]"}], "\[LeftDoubleBracket]", 
+              RowBox[{
+              "#", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+              "\[RightDoubleBracket]"}], "\[LeftDoubleBracket]", 
+             RowBox[{
+             "#", "\[LeftDoubleBracket]", "3", "\[RightDoubleBracket]"}], 
+             "\[RightDoubleBracket]"}], " ", "=", " ", "1"}], ")"}], "&"}], 
+         " ", "/@", " ", "pts"}], ";", " ", "t"}]}], "\[IndentingNewLine]", 
+      "]"}], ")"}]}]}]}]], "Input",
+ InitializationCell->
+  True,ExpressionUUID->"f509538b-bdd0-44ee-a090-aeebc987fbb5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Operations",
+ FontWeight->"Bold",
+ FontSlant->"Italic",
+ FontColor->GrayLevel[0]]], "Subsubsection",
+ CellChangeTimes->{{3.771621645062068*^9, 3.771621647987598*^9}, {
+  3.7716217516379423`*^9, 
+  3.771621752904621*^9}},ExpressionUUID->"9f0de745-a88f-4761-b74c-\
+d947ccc081d6"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+    "Return", " ", "a", " ", "list", " ", "of", " ", "all", " ", "points", 
+     " ", "conntected", " ", "to", " ", "a", " ", "given", " ", "point"}], 
+    ",", " ", 
+    StyleBox["p",
+     FontSlant->"Italic"]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"ClearAll", "[", "getConnections", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"getConnections", "[", 
+     RowBox[{"p_", ",", " ", "t_"}], "]"}], ":=", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{"Block", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"n", ",", "xy", ",", " ", "yz", ",", " ", "xz"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"n", " ", "=", " ", 
+         RowBox[{
+          RowBox[{"Dimensions", "[", "t", "]"}], "\[LeftDoubleBracket]", "1", 
+          "\[RightDoubleBracket]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"xy", " ", "=", " ", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"p", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], ",", " ", 
+             RowBox[{"p", "[", 
+              RowBox[{"[", "2", "]"}], "]"}], ",", " ", "z"}], "}"}], ",", 
+           " ", 
+           RowBox[{"{", 
+            RowBox[{"z", ",", " ", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Max", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{
+                  "p", "\[LeftDoubleBracket]", "3", "\[RightDoubleBracket]"}],
+                   "-", "1"}], ",", " ", "1"}], "]"}], ",", " ", 
+               RowBox[{"Min", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{
+                  "p", "\[LeftDoubleBracket]", "3", "\[RightDoubleBracket]"}],
+                   "+", "1"}], ",", " ", "n"}], "]"}]}], "}"}]}], "}"}]}], 
+          "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"yz", " ", "=", " ", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"x", ",", " ", 
+             RowBox[{"p", "[", 
+              RowBox[{"[", "2", "]"}], "]"}], ",", " ", 
+             RowBox[{"p", "[", 
+              RowBox[{"[", "3", "]"}], "]"}]}], "}"}], ",", " ", 
+           RowBox[{"{", 
+            RowBox[{"x", ",", " ", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Max", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{
+                  "p", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}],
+                   "-", "1"}], ",", " ", "1"}], "]"}], ",", " ", 
+               RowBox[{"Min", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{
+                  "p", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}],
+                   "+", "1"}], ",", " ", "n"}], "]"}]}], "}"}]}], "}"}]}], 
+          "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"xz", " ", "=", " ", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"p", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], ",", " ", "y", ",", " ", 
+             RowBox[{"p", "[", 
+              RowBox[{"[", "3", "]"}], "]"}]}], "}"}], ",", " ", 
+           RowBox[{"{", 
+            RowBox[{"y", ",", " ", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Max", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{
+                  "p", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}],
+                   "-", "1"}], ",", " ", "1"}], "]"}], ",", " ", 
+               RowBox[{"Min", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{
+                  "p", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}],
+                   "+", "1"}], ",", " ", "n"}], "]"}]}], "}"}]}], "}"}]}], 
+          "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"Select", "[", 
+         RowBox[{
+          RowBox[{"Join", "[", 
+           RowBox[{"xy", ",", " ", "yz", ",", " ", "xz"}], "]"}], ",", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"t", "\[LeftDoubleBracket]", 
+                 RowBox[{
+                 "#", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+                 "\[RightDoubleBracket]"}], "\[LeftDoubleBracket]", 
+                RowBox[{
+                "#", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+                "\[RightDoubleBracket]"}], "\[LeftDoubleBracket]", 
+               RowBox[{
+               "#", "\[LeftDoubleBracket]", "3", "\[RightDoubleBracket]"}], 
+               "\[RightDoubleBracket]"}], " ", "==", " ", "1"}], " ", "&&", 
+             " ", 
+             RowBox[{"#", " ", "\[NotEqual]", " ", "p"}]}], ")"}], "&"}]}], 
+         "]"}]}]}], "\[IndentingNewLine]", "]"}], ")"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Return", " ", "a", " ", "list", " ", "of", " ", "all", " ", "open", " ", 
+     "points", " ", "connected", " ", "to", " ", 
+     StyleBox["p",
+      FontSlant->"Italic"]}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ClearAll", "[", "openConnections", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"openConnections", "[", 
+     RowBox[{"p_", ",", " ", "t_"}], "]"}], ":=", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{"Block", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "n", ",", " ", "xy", ",", " ", "yz", ",", " ", "xz", ",", " ", 
+         "pts"}], "}"}], ",", " ", 
+       RowBox[{"(", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"n", " ", "=", " ", 
+          RowBox[{
+           RowBox[{"Dimensions", "[", "t", "]"}], "\[LeftDoubleBracket]", "1",
+            "\[RightDoubleBracket]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"xy", " ", "=", " ", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"p", "[", 
+               RowBox[{"[", "1", "]"}], "]"}], ",", " ", 
+              RowBox[{"p", "[", 
+               RowBox[{"[", "2", "]"}], "]"}], ",", " ", "z"}], "}"}], ",", 
+            " ", 
+            RowBox[{"{", 
+             RowBox[{"z", ",", " ", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"Max", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{
+                   "p", "\[LeftDoubleBracket]", "3", 
+                    "\[RightDoubleBracket]"}], "-", "1"}], ",", " ", "1"}], 
+                 "]"}], ",", " ", 
+                RowBox[{"Min", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{
+                   "p", "\[LeftDoubleBracket]", "3", 
+                    "\[RightDoubleBracket]"}], "+", "1"}], ",", " ", "n"}], 
+                 "]"}]}], "}"}]}], "}"}]}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"yz", " ", "=", " ", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"x", ",", " ", 
+              RowBox[{"p", "[", 
+               RowBox[{"[", "2", "]"}], "]"}], ",", " ", 
+              RowBox[{"p", "[", 
+               RowBox[{"[", "3", "]"}], "]"}]}], "}"}], ",", " ", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", " ", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"Max", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{
+                   "p", "\[LeftDoubleBracket]", "1", 
+                    "\[RightDoubleBracket]"}], "-", "1"}], ",", " ", "1"}], 
+                 "]"}], ",", " ", 
+                RowBox[{"Min", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{
+                   "p", "\[LeftDoubleBracket]", "1", 
+                    "\[RightDoubleBracket]"}], "+", "1"}], ",", " ", "n"}], 
+                 "]"}]}], "}"}]}], "}"}]}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"xz", " ", "=", " ", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"p", "[", 
+               RowBox[{"[", "1", "]"}], "]"}], ",", " ", "y", ",", " ", 
+              RowBox[{"p", "[", 
+               RowBox[{"[", "3", "]"}], "]"}]}], "}"}], ",", " ", 
+            RowBox[{"{", 
+             RowBox[{"y", ",", " ", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"Max", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{
+                   "p", "\[LeftDoubleBracket]", "2", 
+                    "\[RightDoubleBracket]"}], "-", "1"}], ",", " ", "1"}], 
+                 "]"}], ",", " ", 
+                RowBox[{"Min", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{
+                   "p", "\[LeftDoubleBracket]", "2", 
+                    "\[RightDoubleBracket]"}], "+", "1"}], ",", " ", "n"}], 
+                 "]"}]}], "}"}]}], "}"}]}], "]"}]}], ";", 
+         "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{"Select", "[", 
+          RowBox[{
+           RowBox[{"Join", "[", 
+            RowBox[{"xy", ",", " ", "yz", ",", " ", "xz"}], "]"}], ",", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"t", "\[LeftDoubleBracket]", 
+                 RowBox[{
+                 "#", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+                 "\[RightDoubleBracket]"}], "\[LeftDoubleBracket]", 
+                RowBox[{
+                "#", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+                "\[RightDoubleBracket]"}], "\[LeftDoubleBracket]", 
+               RowBox[{
+               "#", "\[LeftDoubleBracket]", "3", "\[RightDoubleBracket]"}], 
+               "\[RightDoubleBracket]"}], " ", "==", " ", "0"}], ")"}], 
+            "&"}]}], "]"}]}], "\[IndentingNewLine]", ")"}]}], "]"}], 
+     ")"}]}]}]}]], "Input",
+ InitializationCell->
+  True,ExpressionUUID->"ba04fcde-a84d-40a5-8401-ecc819cc310b"]
+}, Open  ]]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox[" Generating Structures ",
+ FontWeight->"Bold",
+ FontColor->GrayLevel[0],
+ Background->RGBColor[
+  0.9725490196078431, 0.8313725490196079, 0.34901960784313724`]]], "Section",
+ CellChangeTimes->{{3.771619930637877*^9, 3.771619935831846*^9}, {
+  3.77161998050849*^9, 3.7716200053694687`*^9}, {3.771620038062283*^9, 
+  3.7716200394197474`*^9}, {3.771620111916321*^9, 3.7716201133073*^9}, {
+  3.771621571333662*^9, 3.771621574035007*^9}, {3.77162187227085*^9, 
+  3.771621877003669*^9}},
+ FontColor->GrayLevel[
+  0],ExpressionUUID->"41959122-39e4-4850-bc52-a1a0efacf944"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Random Cubes",
+ FontWeight->"Bold",
+ FontColor->GrayLevel[0]]], "Subsection",
+ CellChangeTimes->{{3.771625724728217*^9, 3.77162572690454*^9}},
+ FontColor->GrayLevel[
+  0],ExpressionUUID->"6515b673-112d-4dcd-bbc4-06a1a64bbb46"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Generate", " ", "a", " ", "random", " ", "set", " ", "of", " ", 
+    StyleBox["n",
+     FontSlant->"Italic"], " ", "cubes"}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"ClearAll", "[", "randomCubes", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"randomCubes", "[", "n_", "]"}], ":=", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{"Block", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"p", ",", " ", "pts"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"pts", " ", "=", " ", 
+         RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"While", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Length", "@", "pts"}], " ", "<", " ", "n"}], ",", " ", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"p", " ", "=", " ", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"RandomInteger", "[", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "n"}], "}"}], "]"}], ",", " ", 
+              RowBox[{"RandomInteger", "[", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "n"}], "}"}], "]"}], ",", " ", 
+              RowBox[{"RandomInteger", "[", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "n"}], "}"}], "]"}]}], "}"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"!", 
+              RowBox[{"(", 
+               RowBox[{"p", " ", "//", " ", 
+                RowBox[{"MemberQ", "[", "pts", "]"}]}], ")"}]}], ",", " ", 
+             RowBox[{"pts", " ", "=", " ", 
+              RowBox[{"pts", " ", "//", " ", 
+               RowBox[{"Append", "[", "p", "]"}]}]}]}], "]"}], ";"}]}], 
+         "\[IndentingNewLine]", "]"}], ";", "pts"}]}], "\[IndentingNewLine]", 
+      "]"}], ")"}]}]}]}]], "Input",
+ InitializationCell->
+  True,ExpressionUUID->"8b53e810-52a8-4c0f-8f9d-7b3553bcb6da"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"randomCubes", "[", "4", "]"}], " ", "//", " ", 
+  "renderPolycube"}]], "Input",
+ CellChangeTimes->{{3.77162605068699*^9, 3.771626056517617*^9}},
+ CellLabel->
+  "In[243]:=",ExpressionUUID->"0f631192-d2b2-49d5-afc5-4dce1a27a31b"],
+
+Cell[BoxData[
+ Graphics3DBox[{
+   {RGBColor[
+     Rational[248, 255], 
+     Rational[212, 255], 
+     Rational[89, 255]], CuboidBox[{2, 4, 1}, {3, 5, 2}]}, 
+   {RGBColor[
+     Rational[248, 255], 
+     Rational[212, 255], 
+     Rational[89, 255]], CuboidBox[{4, 1, 2}, {5, 2, 3}]}, 
+   {RGBColor[
+     Rational[248, 255], 
+     Rational[212, 255], 
+     Rational[89, 255]], CuboidBox[{1, 4, 3}, {2, 5, 4}]}, 
+   {RGBColor[
+     Rational[248, 255], 
+     Rational[212, 255], 
+     Rational[89, 255]], CuboidBox[{3, 1, 1}, {4, 2, 2}]}},
+  Boxed->False,
+  ImageSize->{504.68227195878615`, 383.69560076823467`},
+  ImageSizeRaw->Automatic,
+  Lighting->"Neutral",
+  ViewPoint->{-2.351277052133002, -2.374759080074579, 0.5310513494155558},
+  ViewVertical->{-0.4015533417561663, -0.5316382648870016, 
+   0.7457316333858943}]], "Output",
+ CellChangeTimes->{{3.771626057080679*^9, 3.7716260812834253`*^9}, {
+  3.771626424117951*^9, 3.771626427690516*^9}},
+ CellLabel->
+  "Out[243]=",ExpressionUUID->"4a5668cf-b585-4199-a393-ec5af5aa3859"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Random Polycubes",
+ FontWeight->"Bold",
+ FontColor->GrayLevel[0]]], "Subsection",
+ CellChangeTimes->{{3.771625724728217*^9, 3.77162572690454*^9}, {
+  3.7716261144185057`*^9, 3.771626116133479*^9}},
+ FontColor->GrayLevel[
+  0],ExpressionUUID->"f3df1d2a-9a8e-4a65-ac8c-2c5f6d0304b1"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Generate", " ", "a", " ", "random", " ", 
+    StyleBox["n",
+     FontSlant->"Italic"], " ", "cube", " ", "polycube"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"ClearAll", "[", "randomPolycube", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"randomPolycube", "[", "n_", "]"}], ":=", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{"Block", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"p", ",", " ", "pts", ",", " ", "t", ",", " ", "ops"}], "}"}],
+        ",", " ", 
+       RowBox[{"(", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"p", " ", "=", " ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"RandomInteger", "[", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "n"}], "}"}], "]"}], ",", " ", 
+            RowBox[{"RandomInteger", "[", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "n"}], "}"}], "]"}], ",", " ", 
+            RowBox[{"RandomInteger", "[", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "n"}], "}"}], "]"}]}], "}"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"pts", " ", "=", " ", 
+          RowBox[{"{", "p", "}"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"t", " ", "=", 
+          RowBox[{"generateTensor", "[", 
+           RowBox[{"pts", ",", " ", "n"}], "]"}]}], ";", 
+         "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{"While", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Length", "@", "pts"}], " ", "<", " ", "n"}], ",", " ", 
+           RowBox[{"(", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"ops", " ", "=", " ", 
+              RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+             RowBox[{"While", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Length", "@", "ops"}], " ", "\[Equal]", " ", "0"}], 
+               ",", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"p", " ", "=", " ", 
+                 RowBox[{"RandomChoice", "[", "pts", "]"}]}], ";", 
+                "\[IndentingNewLine]", 
+                RowBox[{"ops", " ", "=", " ", 
+                 RowBox[{"openConnections", "[", 
+                  RowBox[{"p", ",", " ", "t"}], "]"}]}], ";"}]}], 
+              "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+             RowBox[{"p", "=", " ", 
+              RowBox[{"RandomChoice", "@", "ops"}]}], ";", 
+             "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"t", "\[LeftDoubleBracket]", 
+                 RowBox[{
+                 "p", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+                 "\[RightDoubleBracket]"}], "\[LeftDoubleBracket]", 
+                RowBox[{
+                "p", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+                "\[RightDoubleBracket]"}], "\[LeftDoubleBracket]", 
+               RowBox[{
+               "p", "\[LeftDoubleBracket]", "3", "\[RightDoubleBracket]"}], 
+               "\[RightDoubleBracket]"}], " ", "=", " ", "1"}], ";", 
+             "\[IndentingNewLine]", 
+             RowBox[{"pts", " ", "=", " ", 
+              RowBox[{"pts", " ", "//", " ", 
+               RowBox[{"Append", "[", "p", "]"}]}]}], ";"}], 
+            "\[IndentingNewLine]", ")"}]}], "]"}], ";", "pts"}], 
+        "\[IndentingNewLine]", ")"}]}], "]"}], ")"}]}]}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.771626137560815*^9, 3.771626174691608*^9}, 
+   3.7716262170985537`*^9, {3.771626330966535*^9, 3.771626334172039*^9}},
+ CellLabel->
+  "In[222]:=",ExpressionUUID->"263ddb87-2f15-4a9b-820a-1ca2099cd0a3"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"randomPolycube", "[", "5", "]"}], " ", "//", " ", 
+  "renderPolycube"}]], "Input",
+ CellChangeTimes->{{3.771626180404664*^9, 3.771626191522584*^9}, {
+  3.771626246410817*^9, 3.77162625334*^9}, {3.7716263407250147`*^9, 
+  3.771626361782302*^9}},
+ CellLabel->
+  "In[286]:=",ExpressionUUID->"83479d4a-b848-47ef-90c9-50cff27f897d"],
+
+Cell[BoxData[
+ Graphics3DBox[{
+   {RGBColor[
+     Rational[248, 255], 
+     Rational[212, 255], 
+     Rational[89, 255]], CuboidBox[{4, 1, 3}, {5, 2, 4}]}, 
+   {RGBColor[
+     Rational[248, 255], 
+     Rational[212, 255], 
+     Rational[89, 255]], CuboidBox[{4, 1, 4}, {5, 2, 5}]}, 
+   {RGBColor[
+     Rational[248, 255], 
+     Rational[212, 255], 
+     Rational[89, 255]], CuboidBox[{5, 1, 4}, {6, 2, 5}]}, 
+   {RGBColor[
+     Rational[248, 255], 
+     Rational[212, 255], 
+     Rational[89, 255]], CuboidBox[{4, 1, 5}, {5, 2, 6}]}, 
+   {RGBColor[
+     Rational[248, 255], 
+     Rational[212, 255], 
+     Rational[89, 255]], CuboidBox[{3, 1, 3}, {4, 2, 4}]}},
+  Boxed->False,
+  ImageSize->{364.2359240602506, 410.7127793569675},
+  ImageSizeRaw->Automatic,
+  Lighting->"Neutral",
+  ViewPoint->{0.6334054975094836, -2.19591958451407, 2.4953425925255868`},
+  ViewVertical->{-0.3602700969125094, -0.8970332685253968, 
+   0.25600150864652055`}]], "Output",
+ CellChangeTimes->{{3.771626453671319*^9, 3.7716264614545517`*^9}, {
+  3.7716265846591063`*^9, 3.771626599864606*^9}},
+ CellLabel->
+  "Out[286]=",ExpressionUUID->"6810299d-d26d-4392-92e5-8bff38c3cc09"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"randomPolycube", "[", "10", "]"}], " ", "//", " ", 
+  "renderPolycube"}]], "Input",
+ CellChangeTimes->{{3.771626615023843*^9, 3.77162662447786*^9}},
+ CellLabel->
+  "In[287]:=",ExpressionUUID->"c9ea4ab9-42e9-48a2-b41b-14a1dd3762b5"],
+
+Cell[BoxData[
+ Graphics3DBox[{
+   {RGBColor[
+     Rational[248, 255], 
+     Rational[212, 255], 
+     Rational[89, 255]], CuboidBox[{7, 4, 3}, {8, 5, 4}]}, 
+   {RGBColor[
+     Rational[248, 255], 
+     Rational[212, 255], 
+     Rational[89, 255]], CuboidBox[{7, 4, 4}, {8, 5, 5}]}, 
+   {RGBColor[
+     Rational[248, 255], 
+     Rational[212, 255], 
+     Rational[89, 255]], CuboidBox[{7, 5, 4}, {8, 6, 5}]}, 
+   {RGBColor[
+     Rational[248, 255], 
+     Rational[212, 255], 
+     Rational[89, 255]], CuboidBox[{7, 5, 3}, {8, 6, 4}]}, 
+   {RGBColor[
+     Rational[248, 255], 
+     Rational[212, 255], 
+     Rational[89, 255]], CuboidBox[{7, 5, 2}, {8, 6, 3}]}, 
+   {RGBColor[
+     Rational[248, 255], 
+     Rational[212, 255], 
+     Rational[89, 255]], CuboidBox[{7, 6, 3}, {8, 7, 4}]}, 
+   {RGBColor[
+     Rational[248, 255], 
+     Rational[212, 255], 
+     Rational[89, 255]], CuboidBox[{7, 5, 1}, {8, 6, 2}]}, 
+   {RGBColor[
+     Rational[248, 255], 
+     Rational[212, 255], 
+     Rational[89, 255]], CuboidBox[{8, 5, 3}, {9, 6, 4}]}, 
+   {RGBColor[
+     Rational[248, 255], 
+     Rational[212, 255], 
+     Rational[89, 255]], CuboidBox[{7, 4, 1}, {8, 5, 2}]}, 
+   {RGBColor[
+     Rational[248, 255], 
+     Rational[212, 255], 
+     Rational[89, 255]], CuboidBox[{6, 5, 3}, {7, 6, 4}]}},
+  Boxed->False,
+  ImageSize->{386.7440699961625, 310.1006337172622},
+  ImageSizeRaw->Automatic,
+  Lighting->"Neutral",
+  ViewPoint->{0.6974957244491078, -2.2316785514669366`, 2.4460397701790644`},
+  ViewVertical->{-0.7140982202943194, -0.5507925241548298, 
+   0.43207791786625344`}]], "Output",
+ CellChangeTimes->{3.771626624931458*^9},
+ CellLabel->
+  "Out[287]=",ExpressionUUID->"9993cb0d-da9b-4e43-9f4e-608e66173fef"]
+}, Open  ]]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox[" Generating Sets ",
+ FontWeight->"Bold",
+ FontColor->GrayLevel[0],
+ Background->RGBColor[
+  0.9725490196078431, 0.8313725490196079, 0.34901960784313724`]]], "Section",
+ CellChangeTimes->{{3.771626761054812*^9, 3.7716267931934347`*^9}},
+ FontColor->GrayLevel[
+  0],ExpressionUUID->"9e7705dc-12fe-4e17-9265-cffce77e5c22"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Complete Search",
+ FontWeight->"Bold",
+ FontColor->GrayLevel[0]]], "Subsection",
+ CellChangeTimes->{{3.7716274247043*^9, 3.77162742775137*^9}},
+ FontColor->GrayLevel[
+  0],ExpressionUUID->"bfb18133-d018-4f15-8c38-b503d75c2272"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Use", " ", "a", " ", "complete", " ", "search", " ", "of", " ", 
+    StyleBox["n",
+     FontSlant->"Italic"], 
+    StyleBox[" ",
+     FontSlant->"Italic"], "x", " ", 
+    StyleBox["n",
+     FontSlant->"Italic"], 
+    StyleBox[" ",
+     FontSlant->"Italic"], "x", " ", 
+    StyleBox["n",
+     FontSlant->"Italic"], " ", "space", " ", "to", " ", "enumerate"}], " ", 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"ClearAll", "[", "polycubeSet", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"polycubeSet", "[", "n_Integer", "]"}], " ", ":=", " ", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{"Block", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"allPoints", ",", " ", "final"}], "}"}], ",", " ", 
+       RowBox[{
+        RowBox[{"(", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"allPoints", " ", "=", " ", 
+           RowBox[{
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"x", ",", " ", "y", ",", " ", "z"}], "}"}], ",", " ", 
+              RowBox[{"{", 
+               RowBox[{"x", ",", " ", "n"}], "}"}], ",", " ", 
+              RowBox[{"{", 
+               RowBox[{"y", ",", " ", "n"}], "}"}], ",", " ", 
+              RowBox[{"{", 
+               RowBox[{"z", ",", " ", "n"}], "}"}]}], "]"}], " ", "//", " ", 
+            RowBox[{
+             RowBox[{"Flatten", "[", 
+              RowBox[{"#", ",", "2"}], "]"}], "&"}]}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"final", " ", "=", " ", 
+           RowBox[{"Select", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"Sort", " ", "/@", 
+                RowBox[{"Permutations", "[", 
+                 RowBox[{"allPoints", ",", " ", 
+                  RowBox[{"{", "n", "}"}]}], "]"}]}], ")"}], " ", "//", " ", 
+              "DeleteDuplicates"}], ",", 
+             RowBox[{
+              RowBox[{"valid", "[", "#", "]"}], "&"}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"relocate", "/@", " ", "final"}], ")"}], " ", "//", " ", 
+           "DeleteDuplicates"}]}], ")"}], " ", "//", " ", 
+        "removeDuplicates"}]}], "\[IndentingNewLine]", "]"}], 
+     ")"}]}]}]}]], "Input",
+ InitializationCell->
+  True,ExpressionUUID->"c4d0583b-0600-4b11-91ab-617d5d9af6d1"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"renderPolycube", " ", "/@", " ", 
+  RowBox[{"polycubeSet", "[", "3", "]"}]}]], "Input",
+ CellChangeTimes->{{3.771627492195181*^9, 3.7716274989257*^9}},
+ CellLabel->
+  "In[288]:=",ExpressionUUID->"07c8917a-0dcb-47ca-b9bb-0f0eea075471"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 3}, {2, 2, 4}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 2}, {2, 3, 3}]}},
+    Boxed->False,
+    Lighting->"Neutral"]}], "}"}]], "Output",
+ CellChangeTimes->{3.7716275002945213`*^9},
+ CellLabel->
+  "Out[288]=",ExpressionUUID->"4385a07a-cf0b-46ef-b8e9-1a58e42bef55"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"renderPolycube", "/@", 
+  RowBox[{"polycubeSet", "[", "5", "]"}]}]], "Input",
+ CellChangeTimes->{{3.771627505188835*^9, 3.771627512648716*^9}},
+ CellLabel->
+  "In[289]:=",ExpressionUUID->"5dba5aef-fa61-4f78-b326-b6a152ecd962"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","nomem",
+   "\"The current computation was aborted because there was insufficient \
+memory available to complete the computation.\"",2,289,232,
+   26001273674312151868,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.771627513183514*^9},
+ CellLabel->
+  "During evaluation of \
+In[289]:=",ExpressionUUID->"8cfe6d9e-f185-48da-b635-6b60e4a6c2e1"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Throw","sysexc",
+   "\"Uncaught SystemException returned to top level. Can be caught with \
+Catch[\[Ellipsis], _SystemException].\"",2,289,233,26001273674312151868,
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.7716275131944437`*^9},
+ CellLabel->
+  "During evaluation of \
+In[289]:=",ExpressionUUID->"49e93fce-8a1d-4df7-b2ba-7efa0f12cd5c"],
+
+Cell[BoxData[
+ RowBox[{"SystemException", "[", "\<\"MemoryAllocationFailure\"\>", 
+  "]"}]], "Output",
+ CellChangeTimes->{3.771627513199667*^9},
+ CellLabel->
+  "Out[289]=",ExpressionUUID->"c67450c6-82be-4a80-ad97-c418cd51f4f4"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Resized Boxes",
+ FontWeight->"Bold",
+ FontColor->GrayLevel[0]]], "Subsection",
+ CellChangeTimes->{{3.7716274247043*^9, 3.77162742775137*^9}, {
+  3.771627606044343*^9, 3.771627609019397*^9}},
+ FontColor->GrayLevel[
+  0],ExpressionUUID->"6513a287-c139-4b0f-ab48-bcb7ca1f9934"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"All", " ", 
+     StyleBox["pc",
+      FontSlant->"Italic"], 
+     StyleBox[" ",
+      FontSlant->"Plain"], 
+     StyleBox["in",
+      FontSlant->"Plain"], 
+     StyleBox[" ",
+      FontSlant->"Plain"], 
+     StyleBox["set",
+      FontSlant->"Plain"], 
+     StyleBox[" ",
+      FontSlant->"Plain"], 
+     StyleBox["s",
+      FontSlant->"Italic"], " ", "will", " ", "fit", " ", "inside", " ", 
+     "some", " ", "box", " ", "whose", " ", "dimensions", " ", "sum", " ", 
+     "to", " ", 
+     StyleBox["n",
+      FontSlant->"Italic"]}], " ", "+", " ", "2"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"ClearAll", "[", "polycubeBoxSet", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"polycubeBoxSet", "[", "n_", "]"}], ":=", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{"Block", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"grids", ",", " ", "set"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"grids", " ", "=", 
+         RowBox[{
+          RowBox[{"Sort", "/@", 
+           RowBox[{"Select", "[", 
+            RowBox[{
+             RowBox[{"Permutations", "[", 
+              RowBox[{
+               RowBox[{"Join", "[", 
+                RowBox[{
+                 RowBox[{"Range", "[", "n", "]"}], ",", " ", 
+                 RowBox[{"Range", "[", "n", "]"}], ",", " ", 
+                 RowBox[{"Range", "[", "n", "]"}]}], "]"}], ",", " ", 
+               RowBox[{"{", "3", "}"}]}], "]"}], ",", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"Total", "[", "#", "]"}], " ", "\[Equal]", " ", 
+               RowBox[{"(", 
+                RowBox[{"n", " ", "+", " ", "2"}], ")"}]}], "&"}]}], "]"}]}], 
+          " ", "//", " ", "DeleteDuplicates"}]}], ";", "\[IndentingNewLine]", 
+        
+        RowBox[{"set", " ", "=", " ", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"gridSet", "[", 
+                RowBox[{"#", ",", " ", "n"}], "]"}], "&"}], " ", "/@", 
+              "grids"}], ")"}], " ", "//", " ", 
+            RowBox[{
+             RowBox[{"Flatten", "[", 
+              RowBox[{"#", ",", "1"}], "]"}], "&"}]}], ")"}], " ", "//", " ", 
+          "removeDuplicates"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"Select", "[", 
+         RowBox[{"set", ",", " ", 
+          RowBox[{
+           RowBox[{"valid", "[", "#", "]"}], "&"}]}], "]"}]}]}], 
+      "\[IndentingNewLine]", "]"}], ")"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "All", " ", "possible", " ", "sets", " ", "of", " ", "points", " ", "in", 
+     " ", "a", " ", "grid"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ClearAll", "[", "gridSet", "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"gridSet", "[", 
+     RowBox[{"grid_", ",", " ", "n_"}], "]"}], ":=", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{"Block", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"pts", ",", " ", "pcs"}], "}"}], ",", " ", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"pts", " ", "=", " ", 
+         RowBox[{
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"x", ",", " ", "y", ",", " ", "z"}], "}"}], ",", " ", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", " ", 
+              RowBox[{
+              "grid", "\[LeftDoubleBracket]", "1", 
+               "\[RightDoubleBracket]"}]}], "}"}], ",", " ", 
+            RowBox[{"{", 
+             RowBox[{"y", ",", " ", 
+              RowBox[{
+              "grid", "\[LeftDoubleBracket]", "2", 
+               "\[RightDoubleBracket]"}]}], "}"}], ",", " ", 
+            RowBox[{"{", 
+             RowBox[{"z", ",", " ", 
+              RowBox[{
+              "grid", "\[LeftDoubleBracket]", "3", 
+               "\[RightDoubleBracket]"}]}], "}"}]}], "]"}], " ", "//", " ", 
+          RowBox[{
+           RowBox[{"Flatten", "[", 
+            RowBox[{"#", ",", "2"}], "]"}], "&"}]}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"relocate", " ", "/@", " ", 
+           RowBox[{"Permutations", "[", 
+            RowBox[{"pts", ",", " ", 
+             RowBox[{"{", "n", "}"}]}], "]"}]}], ")"}], " ", "//", " ", 
+         "DeleteDuplicates"}]}]}], "\[IndentingNewLine]", "]"}], 
+     ")"}]}]}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.771629077291089*^9, 3.771629083801647*^9}},
+ CellLabel->
+  "In[292]:=",ExpressionUUID->"0ca1bc7c-c232-47cf-8beb-14c24c4a302f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"renderPolycube", "/@", 
+  RowBox[{"polycubeBoxSet", "[", "4", "]"}]}]], "Input",
+ CellChangeTimes->{{3.7716276347973013`*^9, 3.7716276415721416`*^9}},
+ CellLabel->
+  "In[290]:=",ExpressionUUID->"9600e3a8-3418-4ed0-84fc-b1efa8e7b571"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 3}, {2, 2, 4}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 1}, {2, 3, 2}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 1}, {2, 3, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 2}, {2, 3, 3}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 3}, {2, 2, 4}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 2}, {2, 3, 3}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 2}, {2, 3, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 3}, {2, 3, 4}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 3}, {2, 2, 4}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 4}, {2, 2, 5}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 2}, {2, 3, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{2, 2, 2}, {3, 3, 3}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 1}, {2, 3, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{2, 1, 1}, {3, 2, 2}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 1}, {2, 3, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 2}, {2, 3, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{2, 2, 2}, {3, 3, 3}]}},
+    Boxed->False,
+    Lighting->"Neutral"]}], "}"}]], "Output",
+ CellChangeTimes->{3.771627643996666*^9},
+ CellLabel->
+  "Out[290]=",ExpressionUUID->"cc79415a-336d-4dc7-9d48-6ad227d378df"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"renderPolycube", "/@", 
+  RowBox[{"polycubeBoxSet", "[", "5", "]"}]}]], "Input",
+ CellChangeTimes->{{3.771627653323099*^9, 3.771627667374811*^9}},
+ CellLabel->
+  "In[291]:=",ExpressionUUID->"682889e3-1756-4a2b-808e-bf9fadda4471"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 3}, {2, 2, 4}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 4}, {2, 2, 5}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 1}, {2, 3, 2}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 3}, {2, 2, 4}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 4}, {2, 2, 5}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 3}, {2, 3, 4}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 3}, {2, 2, 4}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 2}, {2, 3, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 3}, {2, 3, 4}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 2}, {2, 3, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 3}, {2, 3, 4}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 4}, {2, 3, 5}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 3}, {2, 2, 4}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 1}, {2, 3, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 2}, {2, 3, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 3}, {2, 3, 4}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 3}, {2, 2, 4}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 2}, {2, 3, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 3, 2}, {2, 4, 3}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 3}, {2, 2, 4}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 1}, {2, 3, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 3, 1}, {2, 4, 2}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 2}, {2, 3, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 3}, {2, 3, 4}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 3, 3}, {2, 4, 4}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 2}, {2, 3, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 3, 2}, {2, 4, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 3, 3}, {2, 4, 4}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 2}, {2, 3, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 3}, {2, 3, 4}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 3, 2}, {2, 4, 3}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 1}, {2, 3, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 2}, {2, 3, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 3}, {2, 3, 4}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 3, 2}, {2, 4, 3}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 3}, {2, 2, 4}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 4}, {2, 2, 5}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 5}, {2, 2, 6}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 3}, {2, 2, 4}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 1}, {2, 3, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{2, 2, 1}, {3, 3, 2}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 3}, {2, 2, 4}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 2}, {2, 3, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{2, 2, 2}, {3, 3, 3}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 1}, {2, 3, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 2}, {2, 3, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{2, 1, 1}, {3, 2, 2}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 1}, {2, 3, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{2, 1, 2}, {3, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{2, 1, 3}, {3, 2, 4}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 1}, {2, 3, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{2, 1, 2}, {3, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{2, 2, 2}, {3, 3, 3}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 3}, {2, 2, 4}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 2}, {2, 3, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{2, 1, 2}, {3, 2, 3}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 2}, {2, 3, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 3}, {2, 3, 4}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{2, 2, 3}, {3, 3, 4}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 2}, {2, 3, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{2, 1, 2}, {3, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{2, 1, 3}, {3, 2, 4}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 2}, {2, 3, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{2, 2, 2}, {3, 3, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{2, 2, 3}, {3, 3, 4}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 3}, {2, 2, 4}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 3}, {2, 3, 4}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{2, 1, 3}, {3, 2, 4}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 3}, {2, 2, 4}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 3}, {2, 3, 4}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{2, 1, 1}, {3, 2, 2}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 2}, {2, 3, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 3}, {2, 3, 4}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{2, 1, 2}, {3, 2, 3}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 3}, {2, 2, 4}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 2}, {2, 3, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{2, 1, 1}, {3, 2, 2}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 3}, {2, 2, 4}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{2, 1, 1}, {3, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{2, 2, 1}, {3, 3, 2}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 3}, {2, 2, 4}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 1}, {2, 3, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{2, 1, 2}, {3, 2, 3}]}},
+    Boxed->False,
+    Lighting->"Neutral",
+    ViewPoint->{1.3, -2.4, 2.},
+    ViewVertical->{0., 0., 1.}], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 3}, {2, 2, 4}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 2, 1}, {2, 3, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{2, 1, 3}, {3, 2, 4}]}},
+    Boxed->False,
+    Lighting->"Neutral"], ",", 
+   Graphics3DBox[{
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 1}, {2, 2, 2}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{1, 1, 2}, {2, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{2, 1, 2}, {3, 2, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{2, 2, 2}, {3, 3, 3}]}, 
+     {RGBColor[
+       Rational[248, 255], 
+       Rational[212, 255], 
+       Rational[89, 255]], CuboidBox[{2, 2, 3}, {3, 3, 4}]}},
+    Boxed->False,
+    Lighting->"Neutral"]}], "}"}]], "Output",
+ CellChangeTimes->{3.771628783821607*^9},
+ CellLabel->
+  "Out[291]=",ExpressionUUID->"f4bd38cf-1ac4-4062-9687-54d1e905e643"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Helper Functions",
+ FontWeight->"Bold"]], "Subsection",
+ CellChangeTimes->{{3.771629111975492*^9, 3.7716291150702963`*^9}},
+ FontColor->GrayLevel[
+  0],ExpressionUUID->"43f513e6-5f29-4cd0-9bc1-35587453d8f2"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Valid",
+ FontWeight->"Bold",
+ FontSlant->"Italic"]], "Subsubsection",
+ CellChangeTimes->{{3.771629131274225*^9, 3.771629132533222*^9}},
+ FontColor->GrayLevel[
+  0],ExpressionUUID->"5496c215-ddde-479b-8027-d156dd0d4289"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Check", " ", "that", " ", 
+    StyleBox["pc",
+     FontSlant->"Italic"], 
+    StyleBox[" ",
+     FontSlant->"Plain"], 
+    StyleBox["is",
+     FontSlant->"Plain"], 
+    StyleBox[" ",
+     FontSlant->"Plain"], 
+    StyleBox["connected",
+     FontSlant->"Plain"]}], 
+   StyleBox[" ",
+    FontSlant->"Plain"], 
+   StyleBox["*)",
+    FontSlant->"Plain"]}], 
+  StyleBox["\[IndentingNewLine]",
+   FontSlant->"Plain"], 
+  RowBox[{
+   RowBox[{
+    RowBox[{"ClearAll", "[", "valid", "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"valid", "[", "pc_", "]"}], " ", ":=", " ", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{"Block", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "c", ",", " ", "i", ",", "npc", ",", " ", "outcasts", ",", " ", 
+         "poof", ",", " ", "processing", ",", " ", "pt", ",", " ", "t", ",", 
+         "validated"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"t", " ", "=", 
+         RowBox[{"generateTensor", "[", "pc", "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"validated", " ", "=", " ", 
+         RowBox[{"{", 
+          RowBox[{"First", "@", "pc"}], "}"}]}], ";", " ", 
+        RowBox[{"npc", " ", "=", " ", 
+         RowBox[{"Rest", "@", "pc"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"outcasts", " ", "=", " ", 
+         RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"processing", " ", "=", " ", "True"}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"While", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"Length", "@", "npc"}], " ", ">", " ", "0"}], " ", "||", 
+           " ", "processing"}], ",", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"processing", " ", "=", " ", "False"}], ";", 
+           "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"(*", " ", "NPC", " ", "*)"}], "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Length", "@", "npc"}], " ", ">", " ", "0"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"pt", " ", "=", " ", 
+               RowBox[{"First", "@", "npc"}]}], ";", " ", 
+              RowBox[{"npc", " ", "=", " ", 
+               RowBox[{"Rest", "@", "npc"}]}], ";", "\[IndentingNewLine]", 
+              RowBox[{"c", " ", "=", " ", 
+               RowBox[{"Select", "[", 
+                RowBox[{
+                 RowBox[{"getConnections", "[", 
+                  RowBox[{"pt", ",", " ", "t"}], "]"}], ",", 
+                 RowBox[{
+                  RowBox[{"MemberQ", "[", 
+                   RowBox[{"validated", ",", " ", "#"}], "]"}], "&"}]}], 
+                "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"Length", "@", "c"}], " ", "\[Equal]", " ", "0"}], 
+                ",", 
+                RowBox[{"outcasts", "=", 
+                 RowBox[{"outcasts", " ", "//", " ", 
+                  RowBox[{"Append", "[", "pt", "]"}]}]}], ",", " ", 
+                RowBox[{"(", "\[IndentingNewLine]", 
+                 RowBox[{
+                  RowBox[{"validated", " ", "=", " ", 
+                   RowBox[{"Join", "[", 
+                    RowBox[{
+                    RowBox[{"validated", " ", "//", " ", 
+                    RowBox[{"Append", "[", "pt", "]"}]}], ",", " ", "c"}], 
+                    "]"}]}], ";", "\[IndentingNewLine]", 
+                  RowBox[{"processing", " ", "=", " ", "True"}], ";"}], 
+                 "\[IndentingNewLine]", ")"}]}], "]"}], ";"}]}], 
+            "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", 
+           RowBox[{"(*", " ", 
+            RowBox[{"Check", " ", "outcasts"}], " ", "*)"}], 
+           "\[IndentingNewLine]", 
+           RowBox[{"poof", " ", "=", " ", 
+            RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"For", "[", 
+            RowBox[{
+             RowBox[{"i", " ", "=", " ", "1"}], ",", " ", 
+             RowBox[{"i", " ", "\[LessEqual]", " ", 
+              RowBox[{"Length", "@", "outcasts"}]}], ",", " ", 
+             RowBox[{"i", "++"}], ",", " ", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"pt", " ", "=", " ", 
+               RowBox[{
+               "outcasts", "\[LeftDoubleBracket]", "i", 
+                "\[RightDoubleBracket]"}]}], ";", "\[IndentingNewLine]", 
+              RowBox[{"c", " ", "=", " ", 
+               RowBox[{"Select", "[", 
+                RowBox[{
+                 RowBox[{"getConnections", "[", 
+                  RowBox[{"pt", ",", " ", "t"}], "]"}], " ", ",", 
+                 RowBox[{
+                  RowBox[{"MemberQ", "[", 
+                   RowBox[{"validated", ",", " ", "#"}], "]"}], "&"}]}], 
+                "]"}]}], ";", "\[IndentingNewLine]", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"Length", "@", "c"}], " ", "\[NotEqual]", " ", "0"}],
+                 ",", " ", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"validated", " ", "=", " ", 
+                  RowBox[{"Join", "[", 
+                   RowBox[{
+                    RowBox[{"validated", " ", "//", " ", 
+                    RowBox[{"Append", "[", "pt", "]"}]}], ",", " ", "c"}], 
+                   "]"}]}], ";", "\[IndentingNewLine]", 
+                 RowBox[{"processing", " ", "=", " ", "True"}], ";", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"poof", " ", "=", " ", 
+                  RowBox[{"poof", " ", "//", " ", 
+                   RowBox[{"Append", "[", "i", "]"}]}]}], ";"}]}], 
+               "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", 
+            "]"}], ";", " ", "\[IndentingNewLine]", 
+           RowBox[{"outcasts", " ", "=", " ", 
+            RowBox[{"Delete", "[", 
+             RowBox[{"outcasts", ",", " ", "poof"}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"validated", " ", "=", " ", 
+            RowBox[{"validated", " ", "//", " ", "DeleteDuplicates"}]}], 
+           ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
+        RowBox[{
+         RowBox[{"Length", "@", "validated"}], " ", "\[Equal]", " ", 
+         RowBox[{"Length", "@", "pc"}]}]}]}], "\[IndentingNewLine]", "]"}], 
+     ")"}]}]}]}]], "Input",
+ InitializationCell->
+  True,ExpressionUUID->"b5515689-1c61-4061-af21-f972d7a9a64a"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Relocate",
+ FontWeight->"Bold",
+ FontSlant->"Italic"]], "Subsubsection",
+ CellChangeTimes->{{3.771629131274225*^9, 3.771629152393906*^9}},
+ FontColor->GrayLevel[
+  0],ExpressionUUID->"f88ae8b4-5286-41da-9339-6a28ad327955"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Move", " ", 
+    StyleBox["pc",
+     FontSlant->"Italic"], " ", "to", " ", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", " ", "1", ",", " ", "1"}], "}"}]}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"ClearAll", "[", "relocate", "]"}], ";"}], "\[IndentingNewLine]", 
+   
+   RowBox[{
+    RowBox[{"relocate", "[", "pc_", "]"}], ":=", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{"Block", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"mx", ",", " ", "my", ",", " ", "mz", ",", " ", "pts"}], 
+        "}"}], ",", " ", 
+       RowBox[{"(", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"pts", " ", "=", " ", "pc"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"mx", " ", "=", " ", 
+          RowBox[{
+           RowBox[{"Min", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+              "#", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+              "&"}], " ", "/@", " ", "pts"}], "]"}], " ", "-", " ", "1"}]}], 
+         ";", "\[IndentingNewLine]", 
+         RowBox[{"my", " ", "=", " ", 
+          RowBox[{
+           RowBox[{"Min", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+              "#", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+              "&"}], " ", "/@", " ", "pts"}], "]"}], " ", "-", " ", "1"}]}], 
+         ";", "\[IndentingNewLine]", 
+         RowBox[{"mz", " ", "=", " ", 
+          RowBox[{
+           RowBox[{"Min", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+              "#", "\[LeftDoubleBracket]", "3", "\[RightDoubleBracket]"}], 
+              "&"}], " ", "/@", " ", "pts"}], "]"}], " ", "-", " ", "1"}]}], 
+         ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"#", " ", "-", " ", 
+            RowBox[{"{", 
+             RowBox[{"mx", ",", " ", "my", ",", " ", "mz"}], "}"}]}], "&"}], "/@",
+           "pts"}]}], "\[IndentingNewLine]", ")"}]}], "]"}], ")"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Move", " ", 
+     StyleBox["pc",
+      FontSlant->"Italic"], 
+     StyleBox[" ",
+      FontSlant->"Plain"], 
+     StyleBox["to",
+      FontSlant->"Plain"], 
+     StyleBox[" ",
+      FontSlant->"Plain"], 
+     StyleBox[
+      RowBox[{"{", 
+       RowBox[{"n", ",", " ", "n", ",", " ", "n"}], "}"}],
+      FontSlant->"Plain"]}], 
+    StyleBox[" ",
+     FontSlant->"Plain"], 
+    StyleBox["*)",
+     FontSlant->"Plain"]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"relocate", "[", 
+     RowBox[{"pc_", ",", " ", "n_"}], "]"}], ":=", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{"Block", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"mx", ",", " ", "my", ",", " ", "mz", ",", " ", "pts"}], 
+        "}"}], ",", " ", 
+       RowBox[{"(", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"pts", " ", "=", " ", "pc"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"mx", " ", "=", " ", 
+          RowBox[{
+           RowBox[{"Min", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+              "#", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+              "&"}], " ", "/@", " ", "pts"}], "]"}], " ", "-", " ", "n"}]}], 
+         ";", "\[IndentingNewLine]", 
+         RowBox[{"my", " ", "=", " ", 
+          RowBox[{
+           RowBox[{"Min", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+              "#", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+              "&"}], " ", "/@", " ", "pts"}], "]"}], " ", "-", " ", "n"}]}], 
+         ";", "\[IndentingNewLine]", 
+         RowBox[{"mz", " ", "=", " ", 
+          RowBox[{
+           RowBox[{"Min", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+              "#", "\[LeftDoubleBracket]", "3", "\[RightDoubleBracket]"}], 
+              "&"}], " ", "/@", " ", "pts"}], "]"}], " ", "-", " ", "n"}]}], 
+         ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"#", " ", "-", " ", 
+            RowBox[{"{", 
+             RowBox[{"mx", ",", " ", "my", ",", " ", "mz"}], "}"}]}], "&"}], "/@",
+           "pts"}]}], "\[IndentingNewLine]", ")"}]}], "]"}], 
+     ")"}]}]}]}]], "Input",
+ InitializationCell->
+  True,ExpressionUUID->"44d5d6da-1e89-4a64-abf4-43a7c01d12a6"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Symmetry",
+ FontWeight->"Bold",
+ FontSlant->"Italic"]], "Subsubsection",
+ CellChangeTimes->{{3.771629131274225*^9, 3.771629156622643*^9}},
+ FontColor->GrayLevel[
+  0],ExpressionUUID->"2d749aff-41fa-4e25-a794-d1d2d2b34520"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Rotation", " ", "Matrices"}], " ", "*)"}], "\[IndentingNewLine]", 
+  
+  RowBox[{
+   RowBox[{
+    RowBox[{"xrot", "[", "\[Theta]_", "]"}], " ", ":=", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"1", ",", " ", "0", ",", " ", "0"}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", 
+        RowBox[{"Cos", "[", "\[Theta]", "]"}], ",", " ", 
+        RowBox[{"-", 
+         RowBox[{"Sin", "[", "\[Theta]", "]"}]}]}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", 
+        RowBox[{"Sin", "[", "\[Theta]", "]"}], ",", " ", 
+        RowBox[{"Cos", "[", "\[Theta]", "]"}]}], "}"}]}], "}"}]}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"yrot", "[", "\[Theta]_", "]"}], " ", ":=", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]", "]"}], ",", " ", "0", ",", " ", 
+        RowBox[{"Sin", "[", "\[Theta]", "]"}]}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", "1", ",", " ", "0"}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", 
+         RowBox[{"Sin", "[", "\[Theta]", "]"}]}], ",", " ", "0", ",", " ", 
+        RowBox[{"Cos", "[", "\[Theta]", "]"}]}], "}"}]}], "}"}]}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"zrot", "[", "\[Theta]_", "]"}], " ", ":=", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]", "]"}], ",", " ", 
+        RowBox[{"-", 
+         RowBox[{"Sin", "[", "\[Theta]", "]"}]}], ",", " ", "0"}], "}"}], ",",
+       " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Sin", "[", "\[Theta]", "]"}], ",", " ", 
+        RowBox[{"Cos", "[", "\[Theta]", "]"}], ",", " ", "0"}], "}"}], ",", 
+      " ", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", "0", ",", " ", "1"}], "}"}]}], "}"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Rotate", " ", "a", " ", "polycube", " ", "about", " ", "the", " ", 
+     StyleBox["a",
+      FontSlant->"Italic"], " ", "axis", " ", "by", " ", 
+     StyleBox["\[Theta]",
+      FontSlant->"Italic"], " ", "degrees"}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"NOTE", ":", " ", "x"}], " ", "=", " ", 
+     RowBox[{
+      RowBox[{"1", " ", "|", " ", "y"}], " ", "=", " ", 
+      RowBox[{
+       RowBox[{"2", " ", "|", " ", "z"}], " ", "=", " ", "3"}]}]}], " ", 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ClearAll", "[", "rotate", "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"rotate", "[", 
+     RowBox[{"pc_", ",", " ", "axis_", ",", " ", "\[Theta]_"}], "]"}], ":=", 
+    "  ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Dot", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"xrot", ",", " ", "yrot", ",", " ", "zrot"}], "}"}], 
+          "\[LeftDoubleBracket]", "axis", "\[RightDoubleBracket]"}], "[", 
+         "\[Theta]", "]"}], ",", " ", "#"}], "]"}], "&"}], " ", "/@", " ", 
+     "pc"}]}]}]}]], "Input",
+ InitializationCell->
+  True,ExpressionUUID->"58412c90-f1b6-459e-8e04-517623697bd6"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Remove", " ", "duplicates", " ", "from", " ", "a", " ", "polycube", " ", 
+    "set"}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"ClearAll", "[", "removeDuplicates", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"removeDuplicates", "[", "set_", "]"}], ":=", " ", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{"Block", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "i", ",", "pc", ",", "polySet", ",", "setCopy", ",", " ", "xt", ",", 
+         " ", "yt", ",", " ", "zt"}], "}"}], ",", " ", "\[IndentingNewLine]", 
+       
+       RowBox[{
+        RowBox[{"polySet", " ", "=", " ", 
+         RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"setCopy", " ", "=", " ", 
+         RowBox[{"Sort", " ", "/@", "set"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"For", "[", 
+         RowBox[{
+          RowBox[{"i", " ", "=", " ", "1"}], ",", " ", 
+          RowBox[{"i", " ", "<=", " ", 
+           RowBox[{"Length", "@", "setCopy"}]}], ",", " ", 
+          RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"pc", " ", "=", " ", 
+            RowBox[{
+             RowBox[{
+             "setCopy", "\[LeftDoubleBracket]", "i", 
+              "\[RightDoubleBracket]"}], " ", "//", " ", "Sort"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"polySet", " ", "=", " ", 
+            RowBox[{"polySet", " ", "//", " ", 
+             RowBox[{"Append", "@", "pc"}]}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"For", "[", 
+            RowBox[{
+             RowBox[{"xt", " ", "=", " ", "0"}], ",", " ", 
+             RowBox[{"xt", " ", "<", " ", 
+              RowBox[{"2", "\[Pi]"}]}], ",", " ", 
+             RowBox[{"xt", " ", "+=", " ", 
+              RowBox[{"\[Pi]", "/", "2"}]}], ",", " ", "\[IndentingNewLine]", 
+             
+             RowBox[{
+              RowBox[{"For", "[", 
+               RowBox[{
+                RowBox[{"yt", " ", "=", " ", "0"}], ",", " ", 
+                RowBox[{"yt", " ", "<", " ", 
+                 RowBox[{"2", "\[Pi]"}]}], ",", " ", 
+                RowBox[{"yt", " ", "+=", " ", 
+                 RowBox[{"\[Pi]", "/", "2"}]}], ",", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"For", "[", 
+                  RowBox[{
+                   RowBox[{"zt", " ", "=", " ", "0"}], ",", " ", 
+                   RowBox[{"zt", " ", "<", " ", 
+                    RowBox[{"2", "\[Pi]"}]}], ",", " ", 
+                   RowBox[{"zt", " ", "+=", " ", 
+                    RowBox[{"\[Pi]", "/", "2"}]}], ",", "\[IndentingNewLine]", 
+                   RowBox[{
+                    RowBox[{"setCopy", " ", "=", " ", 
+                    RowBox[{"setCopy", "/.", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"Sort", " ", "@", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"rotate", "[", 
+                    RowBox[{
+                    RowBox[{"rotate", "[", 
+                    RowBox[{
+                    RowBox[{"rotate", "[", 
+                    RowBox[{"pc", ",", " ", "1", ",", " ", "xt"}], "]"}], ",",
+                     " ", "2", ",", " ", "yt"}], "]"}], ",", " ", "3", ",", 
+                    " ", "zt"}], "]"}], " ", "//", " ", "relocate"}], ")"}]}],
+                     ")"}], "\[Rule]", " ", "Nothing"}]}]}], ";"}]}], 
+                  "\[IndentingNewLine]", "]"}], ";"}]}], 
+               "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", 
+            "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", "polySet"}]}], 
+      "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", 
+     ")"}]}]}]}]], "Input",
+ InitializationCell->
+  True,ExpressionUUID->"55f7abca-99f8-458b-877d-ca51ace0f365"]
+}, Closed]]
+}, Closed]]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{945, 1018},
+WindowMargins->{{Automatic, 10}, {Automatic, 10}},
+DockedCells->{
+  Cell[
+   TextData[{
+     StyleBox["  WOLFRAM ", 
+      RGBColor[0.97, 0.83, 0.35], FontFamily -> "Source Sans Pro", FontWeight -> 
+      Bold, FontSize -> 40], 
+     StyleBox["SUMMER SCHOOL", 
+      GrayLevel[1], FontFamily -> "Source Sans Pro", FontSize -> 40], 
+     StyleBox[" 2019", 
+      RGBColor[0.97, 0.83, 0.35], FontFamily -> "Source Sans Pro", FontSize -> 
+      40]}], CellFrameMargins -> 10, Background -> 
+   RGBColor[0.12, 0.14, 0.15]]},
+FrontEndVersion->"12.0 for Linux x86 (64-bit) (April 11, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 695, 18, 99, "Title",ExpressionUUID->"49ab34ee-bfd5-49f5-beef-400d3cc456dd"],
+Cell[1278, 42, 444, 7, 36, "Text",ExpressionUUID->"94536f76-3fd2-4bf6-b228-fa93ec9acae9"],
+Cell[1725, 51, 398, 7, 36, "Text",ExpressionUUID->"b70c649b-a958-4202-9f22-238ea1f9c7d4"],
+Cell[CellGroupData[{
+Cell[2148, 62, 539, 10, 68, "Section",ExpressionUUID->"e89b947b-3ae5-4921-a96b-8ce4335902cb"],
+Cell[CellGroupData[{
+Cell[2712, 76, 255, 5, 55, "Subsection",ExpressionUUID->"9402553f-f65b-4254-99b9-713ff45da3c0"],
+Cell[2970, 83, 2680, 72, 209, "Input",ExpressionUUID->"d53c7fd8-92f7-4328-8732-125c3d60017e",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[5675, 159, 222, 4, 31, "Input",ExpressionUUID->"afdab537-b99b-42d1-880c-b5d5352a4325"],
+Cell[5900, 165, 1006, 28, 302, "Output",ExpressionUUID->"54b5b779-e2fc-445a-a63d-c9bd5504c6cb"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6943, 198, 220, 4, 31, "Input",ExpressionUUID->"bace21e6-57d8-4ca8-b930-221b6c4dfe92"],
+Cell[7166, 204, 1022, 32, 415, "Output",ExpressionUUID->"a16d8163-050d-4711-8d84-a3d5c701d0d0"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[8237, 242, 303, 6, 39, "Subsection",ExpressionUUID->"c78558fc-23c1-4431-9d9c-08e8308aa51c"],
+Cell[CellGroupData[{
+Cell[8565, 252, 255, 6, 46, "Subsubsection",ExpressionUUID->"3b8fb4ba-9be8-4f3d-886c-4f0482d7071e"],
+Cell[8823, 260, 3238, 78, 347, "Input",ExpressionUUID->"f509538b-bdd0-44ee-a090-aeebc987fbb5",
+ InitializationCell->True]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12098, 343, 301, 7, 46, "Subsubsection",ExpressionUUID->"9f0de745-a88f-4761-b74c-d947ccc081d6"],
+Cell[12402, 352, 10416, 263, 554, "Input",ExpressionUUID->"ba04fcde-a84d-40a5-8401-ecc819cc310b",
+ InitializationCell->True]
+}, Open  ]]
+}, Closed]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[22879, 622, 589, 11, 54, "Section",ExpressionUUID->"41959122-39e4-4850-bc52-a1a0efacf944"],
+Cell[CellGroupData[{
+Cell[23493, 637, 250, 5, 55, "Subsection",ExpressionUUID->"6515b673-112d-4dcd-bbc4-06a1a64bbb46"],
+Cell[23746, 644, 2026, 51, 255, "Input",ExpressionUUID->"8b53e810-52a8-4c0f-8f9d-7b3553bcb6da",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[25797, 699, 262, 6, 31, "Input",ExpressionUUID->"0f631192-d2b2-49d5-afc5-4dce1a27a31b"],
+Cell[26062, 707, 1028, 28, 401, "Output",ExpressionUUID->"4a5668cf-b585-4199-a393-ec5af5aa3859"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[27139, 741, 305, 6, 39, "Subsection",ExpressionUUID->"f3df1d2a-9a8e-4a65-ac8c-2c5f6d0304b1"],
+Cell[27447, 749, 3770, 87, 462, "Input",ExpressionUUID->"263ddb87-2f15-4a9b-820a-1ca2099cd0a3",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[31242, 840, 362, 8, 31, "Input",ExpressionUUID->"83479d4a-b848-47ef-90c9-50cff27f897d"],
+Cell[31607, 850, 1154, 32, 428, "Output",ExpressionUUID->"6810299d-d26d-4392-92e5-8bff38c3cc09"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[32798, 887, 266, 6, 31, "Input",ExpressionUUID->"c9ea4ab9-42e9-48a2-b41b-14a1dd3762b5"],
+Cell[33067, 895, 1710, 51, 327, "Output",ExpressionUUID->"9993cb0d-da9b-4e43-9f4e-608e66173fef"]
+}, Open  ]]
+}, Closed]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[34838, 953, 343, 7, 54, "Section",ExpressionUUID->"9e7705dc-12fe-4e17-9265-cffce77e5c22"],
+Cell[CellGroupData[{
+Cell[35206, 964, 251, 5, 55, "Subsection",ExpressionUUID->"bfb18133-d018-4f15-8c38-b503d75c2272"],
+Cell[35460, 971, 2465, 65, 209, "Input",ExpressionUUID->"c4d0583b-0600-4b11-91ab-617d5d9af6d1",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[37950, 1040, 258, 5, 31, "Input",ExpressionUUID->"07c8917a-0dcb-47ca-b9bb-0f0eea075471"],
+Cell[38211, 1047, 1122, 35, 235, "Output",ExpressionUUID->"4385a07a-cf0b-46ef-b8e9-1a58e42bef55"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39370, 1087, 250, 5, 31, "Input",ExpressionUUID->"5dba5aef-fa61-4f78-b326-b6a152ecd962"],
+Cell[39623, 1094, 407, 10, 23, "Message",ExpressionUUID->"8cfe6d9e-f185-48da-b635-6b60e4a6c2e1"],
+Cell[40033, 1106, 400, 10, 23, "Message",ExpressionUUID->"49e93fce-8a1d-4df7-b2ba-7efa0f12cd5c"],
+Cell[40436, 1118, 227, 5, 35, "Output",ExpressionUUID->"c67450c6-82be-4a80-ad97-c418cd51f4f4"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[40712, 1129, 298, 6, 39, "Subsection",ExpressionUUID->"6513a287-c139-4b0f-ab48-bcb7ca1f9934"],
+Cell[41013, 1137, 4725, 128, 439, "Input",ExpressionUUID->"0ca1bc7c-c232-47cf-8beb-14c24c4a302f",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[45763, 1269, 257, 5, 31, "Input",ExpressionUUID->"9600e3a8-3418-4ed0-84fc-b1efa8e7b571"],
+Cell[46023, 1276, 5018, 157, 487, "Output",ExpressionUUID->"cc79415a-336d-4dc7-9d48-6ad227d378df"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[51078, 1438, 253, 5, 31, "Input",ExpressionUUID->"682889e3-1756-4a2b-808e-bf9fadda4471"],
+Cell[51334, 1445, 21673, 674, 1747, "Output",ExpressionUUID->"f4bd38cf-1ac4-4062-9687-54d1e905e643"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[73056, 2125, 231, 4, 39, "Subsection",ExpressionUUID->"43f513e6-5f29-4cd0-9bc1-35587453d8f2"],
+Cell[CellGroupData[{
+Cell[73312, 2133, 243, 5, 46, "Subsubsection",ExpressionUUID->"5496c215-ddde-479b-8027-d156dd0d4289"],
+Cell[73558, 2140, 6642, 151, 899, "Input",ExpressionUUID->"b5515689-1c61-4061-af21-f972d7a9a64a",
+ InitializationCell->True]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[80237, 2296, 246, 5, 38, "Subsubsection",ExpressionUUID->"f88ae8b4-5286-41da-9339-6a28ad327955"],
+Cell[80486, 2303, 4478, 123, 531, "Input",ExpressionUUID->"44d5d6da-1e89-4a64-abf4-43a7c01d12a6",
+ InitializationCell->True]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[85001, 2431, 246, 5, 38, "Subsubsection",ExpressionUUID->"2d749aff-41fa-4e25-a794-d1d2d2b34520"],
+Cell[85250, 2438, 3248, 90, 233, "Input",ExpressionUUID->"58412c90-f1b6-459e-8e04-517623697bd6",
+ InitializationCell->True],
+Cell[88501, 2530, 3891, 88, 485, "Input",ExpressionUUID->"55f7abca-99f8-458b-877d-ca51ace0f365",
+ InitializationCell->True]
+}, Closed]]
+}, Closed]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
