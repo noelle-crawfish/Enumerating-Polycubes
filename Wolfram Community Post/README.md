@@ -74,6 +74,7 @@ This method is one I had considered from the start of my project to be a possibl
        Join[pc, {#}] & /@ (openConnections[#, t] & /@ pc // 
            DeleteDuplicates // Flatten[#, 1] &) 
        ])
+By cutting out all possibilities that weren't valid polycubes, this algorithm managed to generate larger sets (up to *n* = 8).
 
 ## Results
 | n 	| polycubes 	|   	| n  	| polycubes 	|
