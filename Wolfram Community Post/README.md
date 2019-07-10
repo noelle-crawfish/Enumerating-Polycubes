@@ -1,11 +1,11 @@
 ## Introduction
 ### What Are Polycubes?
-Polynomino tiles are 2-D tiles formed from a set of n square tiles. In this project I worked with polycubes, their 3-D cousins, which are composed of cubes as opposed to squares. They look something like this...
+Polyomino tiles are 2-D tiles formed from a set of n square tiles. In this project I worked with polycubes, their 3-D cousins, which are composed of cubes as opposed to squares. They look something like this...
 
 ![8-cube polycube][1]
 
 ### Goals
-My goal over the course of this project was to enumerate complete sets of polycubes. That is for a set of *n* cubes, I wanted to be able to generate a list of every possible arrangement.
+My goal over the course of this project was to enumerate complete sets of polycubes. That is, for a set of *n* cubes, I wanted to be able to generate a list of every possible arrangement.
 
 ## Methods
 ### Complete Search
@@ -22,12 +22,62 @@ Since I began this project as a part of the Wolfram Summer Camp, I had a limited
        Print[Style["COUNT \[DoubleRightArrow] ", Bold], Length@res];
        res
        ])
-###Confined Search
-While examining the shapes of the polycubes I was generating, I noticed that every polycube generated for a certain *n* could be fit inside a box of dimensions that summed to no more than *n* + 2.
+
+With this method, I was only able to generate sets up to *n* = 3.
+
+### Confined Boxes Search
+While examining the shapes of the polycubes I was generating, I noticed that every polycube generated for a certain *n* could be fit inside a box of dimensions that summed to no more than *n* + 2. 
+
+In order to use this information to my advantage, I wrote a function that would generate a list of valid boxes, and then ran a complete search within each of them. 
+
+    polycubeBoxSet[n_] := (
+      Block[{grids, res, set},
+       grids = 
+        Sort /@ Select[
+           Permutations[Join[Range[n], Range[n], Range[n]], {3}], 
+           Total[#] == (n + 2) &] // DeleteDuplicates;
+       set = ((gridSet[#, n] & /@ grids) // Flatten[#, 1] &) // 
+         removeDuplicates;
+       res = Select[set, valid[#] &];
+       Print[Style["COUNT \[DoubleRightArrow] ", Bold], Length@res];
+       res
+       ])
+
+    gridSet[grid_, n_] := (
+      Block[{pts, pcs}, 
+       pts = Table[{x, y, z}, {x, grid[[1]]}, {y, grid[[2]]}, {z, 
+           grid[[3]]}] // Flatten[#, 2] &;
+       (relocate /@ Permutations[pts, {n}]) // DeleteDuplicates
+       ])
+       
+A confined search proved to be much faster than a complete search, and allowed me to generate sets up to *n* = 5.
+
+### Exploration Search
+This method is one I had considered from the start of my project to be a possible solution, but I didn't actually implement until later on due to worries about not finishing. However, it ended up being one of the simplest to implement since I didn't have to bother checking the validity of forms I knew were built off each other.
+    
+    polycubeExploreSet[n_] := (
+      Block[{new, pt, res},
+       new = res = {{{n, n, n}}};(* Allow building on all faces *)
+       
+       While[Length@First@res < n,
+        new = 
+         Sort /@ relocate /@ (explore /@ res // Flatten[#, 1] &) // 
+           DeleteDuplicates // unique;
+        res = relocate[#, 2] & /@ new;
+        ]; Print[Style["COUNT \[DoubleRightArrow] ", Bold], Length@res]; 
+       res
+       ])
+   
+    explore[pc_] := (
+      Block[{t},
+       t = generateTensor[pc, Max@*Flatten@pc + 1];
+       Join[pc, {#}] & /@ (openConnections[#, t] & /@ pc // 
+           DeleteDuplicates // Flatten[#, 1] &) 
+       ])
 
 ## Results
 | n 	| polycubes 	|   	| n  	| polycubes 	|
-|---	|-----------	|---	|----	|:---------:	|
+|:---:	|-----------:	|---	|:----:	|---------:	|
 | 1 	|         1 	|   	| 6  	|       166 	|
 | 2 	|         1 	|   	| 7  	|      1023 	|
 | 3 	|         2 	|   	| 8  	|      6922 	|
