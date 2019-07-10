@@ -22,8 +22,10 @@ Since I began this project as a part of the Wolfram Summer Camp, I had a limited
        Print[Style["COUNT \[DoubleRightArrow] ", Bold], Length@res];
        res
        ])
-
+       
 With this method, I was only able to generate sets up to *n* = 3.
+
+![3-cube set][2]
 
 ### Confined Boxes Search
 While examining the shapes of the polycubes I was generating, I noticed that every polycube generated for a certain *n* could be fit inside a box of dimensions that summed to no more than *n* + 2. 
@@ -48,9 +50,10 @@ In order to use this information to my advantage, I wrote a function that would 
        pts = Table[{x, y, z}, {x, grid[[1]]}, {y, grid[[2]]}, {z, 
            grid[[3]]}] // Flatten[#, 2] &;
        (relocate /@ Permutations[pts, {n}]) // DeleteDuplicates
-       ])
-       
+       ])      
 A confined search proved to be much faster than a complete search, and allowed me to generate sets up to *n* = 5.
+
+![5-cube set][3]
 
 ### Exploration Search
 This method is one I had considered from the start of my project to be a possible solution, but I didn't actually implement until later on due to worries about not finishing. However, it ended up being one of the simplest to implement since I didn't have to bother checking the validity of forms I knew were built off each other.
@@ -76,6 +79,8 @@ This method is one I had considered from the start of my project to be a possibl
        ])
 By cutting out all possibilities that weren't valid polycubes, this algorithm managed to generate larger sets (up to *n* = 8).
 
+![Some 8-cube polycubes][4]
+
 ## Results
 | n 	| polycubes 	|   	| n  	| polycubes 	|
 |:---:	|-----------:	|---	|:----:	|---------:	|
@@ -89,4 +94,7 @@ By cutting out all possibilities that weren't valid polycubes, this algorithm ma
 Attached to this post is a notebook containing my work.
 
 
-[1]: https://community.wolfram.com//c/portal/getImageAttachment?filename=98818omino.png&userId=1720553
+[1]: https://github.com/noelle-crawfish/Enumerating-Polycubes/blob/master/Wolfram%20Community%20Post/images/8cube.png?raw=true
+[2]: https://github.com/noelle-crawfish/Enumerating-Polycubes/blob/master/Wolfram%20Community%20Post/images/3cube.png?raw=true
+[3]: https://github.com/noelle-crawfish/Enumerating-Polycubes/blob/master/Wolfram%20Community%20Post/images/5cubes.png?raw=true
+[4]: https://github.com/noelle-crawfish/Enumerating-Polycubes/blob/master/Wolfram%20Community%20Post/images/8cubes.png?raw=true
