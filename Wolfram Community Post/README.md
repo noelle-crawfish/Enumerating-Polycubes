@@ -1,6 +1,6 @@
 ## Introduction
 ### What Are Polycubes?
-Polyomino tiles are 2-D tiles formed from a set of n square tiles. In this project I worked with polycubes, their 3-D cousins, which are composed of cubes as opposed to squares. They look something like this...
+Polyomino tiles are 2-D tiles formed from a set of *n* square tiles. In this project I worked with polycubes, their 3-D cousins, which are composed of cubes as opposed to squares. They look something like this...
 
 ![8-cube polycube][1]
 
@@ -9,7 +9,7 @@ My goal over the course of this project was to enumerate complete sets of polycu
 
 ## Methods
 ### Complete Search
-Since I began this project as a part of the Wolfram Summer Camp, I had a limited amount of time to complete it. The first thing I did was write a function to generate polycube sets through a complete search of possibilities in *n* x *n* x *n* space. 
+When I begin a project, I like to first produce a 'minimum viable product', something that could technically complete a task, but will do it badly. That way I have data to check future results against, and a guarantee that there will be something to show for my efforts. The first thing I did was write a function to generate polycube sets through a complete search of possibilities in *n* x *n* x *n* space. 
 
     polycubeSet[n_Integer] := (
       Block[{allPoints, final, res}, 
@@ -56,7 +56,7 @@ A confined search proved to be much faster than a complete search, and allowed m
 ![5-cube set][3]
 
 ### Exploration Search
-This method is one I had considered from the start of my project to be a possible solution, but I didn't actually implement until later on due to worries about not finishing. However, it ended up being one of the simplest to implement since I didn't have to bother checking the validity of forms I knew were built off each other.
+This method is one I had considered from the start of my project to be a possible solution, but I didn't actually implement until later on due to worries about not finishing. However, it ended up being one of the simplest to implement since I didn't have to check the validity of each structure at the end.
     
     polycubeExploreSet[n_] := (
       Block[{new, pt, res},
@@ -77,9 +77,7 @@ This method is one I had considered from the start of my project to be a possibl
        Join[pc, {#}] & /@ (openConnections[#, t] & /@ pc // 
            DeleteDuplicates // Flatten[#, 1] &) 
        ])
-By cutting out all possibilities that weren't valid polycubes, this algorithm managed to generate larger sets (up to *n* = 8).
-
-**Some examples:**
+By cutting out the processing of possibilities that aren't valid polycubes, this algorithm managed to generate mcuh larger sets (up to *n* = 8, a set of 6922 distinct polycubes). Below are some of my favorites...
 
 ![Some 8-cube polycubes][4]
 ![Some 8-cube polycubes][5]
@@ -87,6 +85,8 @@ By cutting out all possibilities that weren't valid polycubes, this algorithm ma
 ![Some 8-cube polycubes][7]
 
 ## Results
+The number of distinct polycubes possible for *n* cubes.
+
 | n 	| polycubes 	|   	| n  	| polycubes 	|
 |:---:	|-----------:	|---	|:----:	|---------:	|
 | 1 	|         1 	|   	| 6  	|       166 	|
