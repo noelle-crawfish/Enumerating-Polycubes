@@ -10,19 +10,23 @@ My goal over the course of this project was to enumerate complete sets of polycu
 
 ## Methods
 
-### Helper functions
+### Basic Functionality
 
-__Representing Polycubes Internally__
-A 'polycube' as represented in my code is simply a list of points in 3-D space where cubes should be placed. For example, a 1 x 2 polycube 
+__Representing Polycubes Internally__: A 'polycube' as represented in my code is simply a list of points in 3-D space where cubes should be placed. For example, a 1 x 1 x 2 polycube (*n* = 2) can be represented as {{1, 1, 1}, {1, 1, 2}}. These points can be converted into 3-D sparse arrays (3rd order tensors), where 1s represent cubes and 0s represent empty space.
 
-__Rendering__
+__Rendering__: For debugging purposes, it's difficult to look at lists of numbers and determine whether or not your code is working. Looking at nice graphical representations is both easier and a lot more satisfying.
 
-__Processing__
+So this... {{1, 1, 1}, {1, 2, 1}, {1, 3, 1}, {1, 2, 2}} 
 
-__*Checking Connections*__
+Becomes this...
 
+![rendered polycube][8]
 
- __*Removing Duplicates*__
+### Processing
+
+__Checking Connections__: In order to be considered a valid polycube, all cubes in the form must be connected. To ensure all returned polycubes were valid, I implemented a helper function: *valid\[pc\]*. This function selects one cube from the polycube as a start block, and ensures that every other block in the form can in some way be connected back to that initial block. Every time the function finds a block that has a neigbor already included in the 'valid' chunk of blocks, that block and it's neighbors are 'validated'. If all blocks can be 'validated', the form itself is a 'valid' polycube.
+
+ __Removing Duplicates__: 
 
 ### Complete Search
 The first step was to produce a 'minimum viable product', something that could technically complete the task, and would be fast to implement. This allowed me to quickly develop and test a way to find and remove duplicates, without worrying about runtime optimizations. Below is the function I wrote to generate polycube sets through a complete search of possibilities in *n* x *n* x *n* space. 
@@ -124,3 +128,4 @@ The notebook containing my results can be found <a href="https://github.com/noel
 [5]: https://github.com/noelle-crawfish/Enumerating-Polycubes/blob/master/Wolfram%20Community%20Post/images/8cubes2.png?raw=true
 [6]: https://github.com/noelle-crawfish/Enumerating-Polycubes/blob/master/Wolfram%20Community%20Post/images/8cubes3.png?raw=true
 [7]: https://github.com/noelle-crawfish/Enumerating-Polycubes/blob/master/Wolfram%20Community%20Post/images/8cubes4.png?raw=true
+[8]: https://github.com/noelle-crawfish/Enumerating-Polycubes/blob/master/Wolfram%20Community%20Post/images/4omino.png?raw=true
