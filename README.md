@@ -2,7 +2,7 @@
 
 ## Introduction
 ### What Are Polycubes?
-Polyomino tiles are 2-D tiles formed from a set of *n* square tiles. In this project I worked with polycubes, their 3-D cousins, which are composed of cubes as opposed to squares. They look something like this...
+Polyomino tiles are 2-D tiles formed from a set of *n* square tiles. In this project I worked with polycubes, their 3-D cousins, which are composed of cubes as opposed to squares. They look something like this:
 
 ![8-cube polycube][1]
 
@@ -24,11 +24,11 @@ Becomes this:
 
 ### Processing
 
-__Checking Connections__: In order to be considered a valid polycube, all cubes in the form must be connected. To ensure all returned polycubes were valid, I implemented a helper function: *valid\[pc\]*. This function selects one cube from the polycube as a start block, and ensures that every other block in the form can in some way be connected back to that initial block. Every time the function finds a block that has a neigbor already included in the 'valid' chunk of blocks, that block and it's neighbors are 'validated'. If all blocks can be 'validated', the form itself is a 'valid' polycube.
+__Checking Connections__: In order to be considered a valid polycube, all cubes in the form must be connected. To ensure all returned polycubes were valid, I implemented a helper function: *valid\[pc\]*. This function selects one cube from the polycube as a start block, and ensures that every other block in the form can in some way be connected back to that initial block. Every time the function finds a block that has a neighbor already included in the 'valid' chunk of blocks, that block and its neighbors are 'validated'. If all blocks can be 'validated', the form itself is a 'valid' polycube.
 
  __Removing Duplicates__: This was one of the most challenging parts of my project, as there are so many factors to account for when removing duplicates. I ended up dividing the work into two functions. 
  
- The first is something called *relocate*, which moves a polycube on my coordinate system so it is pressed up against the edges of a box located at {*n*, *n*, *n*}. By doing this, I make certain that any similarly structured and oriented polycubes will look the same if compared. For example, the structures {{1, 1, 1}, {1, 1, 2}} and {{1, 1, 2}, {1, 1, 3}} are the same, but they would not be considered duplicates at a computer since they're at different positions. In such a senario, *relocate* could move the second structure -1 in the z axis, after which they could be considered identical.
+ The first is something called *relocate*, which moves a polycube on my coordinate system so it is pressed up against the edges of a box located at {*n*, *n*, *n*}. By doing this, I make certain that any similarly structured and oriented polycubes will look the same if compared. For example, the structures {{1, 1, 1}, {1, 1, 2}} and {{1, 1, 2}, {1, 1, 3}} are the same, but they would not be considered duplicates at a computer since they're at different positions. In such a scenario, *relocate* could move the second structure -1 in the z axis, after which they could be considered identical.
  
  The second function is *rotate*, and is used by my program to generate rotations of polycubes (in increments of 90 degrees) by multiplying each point on the polycube by a rotation matrix.
     
