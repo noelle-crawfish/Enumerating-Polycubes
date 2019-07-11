@@ -79,7 +79,12 @@ This method is one I had considered from the start of my project to be a possibl
        ])
 By cutting out all possibilities that weren't valid polycubes, this algorithm managed to generate larger sets (up to *n* = 8).
 
+**Some examples:**
+
 ![Some 8-cube polycubes][4]
+![Some 8-cube polycubes][5]
+![Some 8-cube polycubes][6]
+![Some 8-cube polycubes][7]
 
 ## Results
 | n 	| polycubes 	|   	| n  	| polycubes 	|
@@ -97,4 +102,7 @@ Attached to this post is a notebook containing my work.
 [1]: https://github.com/noelle-crawfish/Enumerating-Polycubes/blob/master/Wolfram%20Community%20Post/images/8cube.png?raw=true
 [2]: https://github.com/noelle-crawfish/Enumerating-Polycubes/blob/master/Wolfram%20Community%20Post/images/3cube.png?raw=true
 [3]: https://github.com/noelle-crawfish/Enumerating-Polycubes/blob/master/Wolfram%20Community%20Post/images/5cubes.png?raw=true
-[4]: https://github.com/noelle-crawfish/Enumerating-Polycubes/blob/master/Wolfram%20Community%20Post/images/8cubes.png?raw=true
+[4]: https://github.com/noelle-crawfish/Enumerating-Polycubes/blob/master/Wolfram%20Community%20Post/images/8cubes1.png?raw=true
+[5]: https://github.com/noelle-crawfish/Enumerating-Polycubes/blob/master/Wolfram%20Community%20Post/images/8cubes2.png?raw=true
+[6]: https://github.com/noelle-crawfish/Enumerating-Polycubes/blob/master/Wolfram%20Community%20Post/images/8cubes3.png?raw=true
+[7]: https://github.com/noelle-crawfish/Enumerating-Polycubes/blob/master/Wolfram%20Community%20Post/images/8cubes4.png?raw=true
