@@ -9,10 +9,25 @@ Polyomino tiles are 2-D tiles formed from a set of *n* square tiles. In this pro
 My goal over the course of this project was to enumerate complete sets of polycubes. That is, given *n* cubes, I wanted to be able to generate a list of every possible arrangement, and a count of how many exist. 
 
 ## Methods
+
+### Helper functions
+
+__Representing Polycubes Internally__
+A 'polycube' as represented in my code is simply a list of points in 3-D space where cubes should be placed. For example, a 1 x 2 polycube 
+
+__Rendering__
+
+__Processing__
+
+__*Checking Connections*__
+
+
+ __*Removing Duplicates*__
+
 ### Complete Search
 The first step was to produce a 'minimum viable product', something that could technically complete the task, and would be fast to implement. This allowed me to quickly develop and test a way to find and remove duplicates, without worrying about runtime optimizations. Below is the function I wrote to generate polycube sets through a complete search of possibilities in *n* x *n* x *n* space. 
 
-    polycubeSet[n_Integer] := (
+    polycubeSet[n_Integer] := 
       Block[{allPoints, final, res}, 
        allPoints = 
         Table[{x, y, z}, {x, n}, {y, n}, {z, n}] // Flatten[#, 2] &;
@@ -22,9 +37,9 @@ The first step was to produce a 'minimum viable product', something that could t
        res = (relocate /@ final) // DeleteDuplicates // unique;
        Print[Style["COUNT \[DoubleRightArrow] ", Bold], Length@res];
        res
-       ])
+       ]
        
-With this method, I was only able to generate sets up to *n* = 3.
+With this method, I was only able to generate polycube sets up to *n* = 3 cubes.
 
 ![3-cube set][2]
 
@@ -33,7 +48,7 @@ While examining the shapes of the polycubes I was generating, I noticed that eve
 
 In order to use this information to my advantage, I wrote a function that would generate a list of valid boxes, and then run a complete search within each of them. 
 
-    polycubeBoxSet[n_] := (
+    polycubeBoxSet[n_] := 
       Block[{grids, res, set},
        grids = 
         Sort /@ Select[
@@ -44,22 +59,23 @@ In order to use this information to my advantage, I wrote a function that would 
        res = Select[set, valid[#] &];
        Print[Style["COUNT \[DoubleRightArrow] ", Bold], Length@res];
        res
-       ])
+       ]
 
-    gridSet[grid_, n_] := (
+    gridSet[grid_, n_] := 
       Block[{pts, pcs}, 
        pts = Table[{x, y, z}, {x, grid[[1]]}, {y, grid[[2]]}, {z, 
            grid[[3]]}] // Flatten[#, 2] &;
        (relocate /@ Permutations[pts, {n}]) // DeleteDuplicates
-       ])      
-A confined search proved to be much faster than a complete search, and allowed me to generate sets up to *n* = 5.
+       ]      
+
+A confined search proved to be much faster than a complete search, and allowed me to generate polycube sets up to *n* = 5 cubes.
 
 ![5-cube set][3]
 
 ### Exploration Search
-My final attempt (for now) was a method that worked by processing structures by 'generations'. The function generates a complete set for each *n* up to the desired value, and the proceeds to the next set by returning every form that can be obtained by adding one cube to any open location. Since the structures are built upon each other, this approach removes the need to check whether or not all cubes are connected in a given polycube.
+My final attempt (for now) is a method that works by processing structures in 'generations'. The function generates a complete set for each *n* up to the desired value, and then proceeds to the next set by returning every form that can be obtained by adding one cube to any open location. Since the structures are built upon each other, this approach removes the need to check whether or not all cubes are connected in a given polycube.
     
-    polycubeExploreSet[n_] := (
+    polycubeExploreSet[n_] := 
       Block[{new, pt, res},
        new = res = {{{n, n, n}}};(* Allow building on all faces *)
        
@@ -70,14 +86,15 @@ My final attempt (for now) was a method that worked by processing structures by 
         res = relocate[#, 2] & /@ new;
         ]; Print[Style["COUNT \[DoubleRightArrow] ", Bold], Length@res]; 
        res
-       ])
+       ]
    
-    explore[pc_] := (
+    explore[pc_] := 
       Block[{t},
        t = generateTensor[pc, Max@*Flatten@pc + 1];
        Join[pc, {#}] & /@ (openConnections[#, t] & /@ pc // 
            DeleteDuplicates // Flatten[#, 1] &) 
-       ])
+       ]
+
 By cutting out the processing of extra possibilities, this approach managed to generate much larger sets (up to *n* = 8, a set of 6922 distinct polycubes). Below are some of my favorites...
 
 ![Some 8-cube polycubes][4]
