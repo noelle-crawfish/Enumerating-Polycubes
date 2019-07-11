@@ -16,9 +16,9 @@ __Representing Polycubes Internally__: A 'polycube' as represented in my code is
 
 __Rendering__: For debugging purposes, it's difficult to look at lists of numbers and determine whether or not your code is working. Looking at nice graphical representations is both easier and a lot more satisfying.
 
-So this... {{1, 1, 1}, {1, 2, 1}, {1, 3, 1}, {1, 2, 2}} 
+So this: {{1, 1, 1}, {1, 2, 1}, {1, 3, 1}, {1, 2, 2}} 
 
-Becomes this...
+Becomes this:
 
 ![rendered polycube][8]
 
@@ -26,7 +26,24 @@ Becomes this...
 
 __Checking Connections__: In order to be considered a valid polycube, all cubes in the form must be connected. To ensure all returned polycubes were valid, I implemented a helper function: *valid\[pc\]*. This function selects one cube from the polycube as a start block, and ensures that every other block in the form can in some way be connected back to that initial block. Every time the function finds a block that has a neigbor already included in the 'valid' chunk of blocks, that block and it's neighbors are 'validated'. If all blocks can be 'validated', the form itself is a 'valid' polycube.
 
- __Removing Duplicates__: 
+ __Removing Duplicates__: This was one of the most challenging parts of my project, as there are so many factors to account for when removing duplicates. I ended up dividing the work into two functions. 
+ 
+ The first is something called *relocate*, which moves a polycube on my coordinate system so it is pressed up against the edges of a box located at {*n*, *n*, *n*}. By doing this, I make certain that any similarly structured and oriented polycubes will look the same if compared. For example, the structures {{1, 1, 1}, {1, 1, 2}} and {{1, 1, 2}, {1, 1, 3}} are the same, but they would not be considered duplicates at a computer since they're at different positions. In such a senario, *relocate* could move the second structure -1 in the z axis, after which they could be considered identical.
+ 
+ The second function is *rotate*, and is used by my program to generate rotations of polycubes (in increments of 90 degrees) by multiplying each point on the polycube by a rotation matrix.
+    
+    (* Rotation Matrices *)
+    xrot[\[Theta]_] := {{1, 0, 0}, {0, 
+       Cos[\[Theta]], -Sin[\[Theta]]}, {0, Sin[\[Theta]], Cos[\[Theta]]}}
+    yrot[\[Theta]_] := {{Cos[\[Theta]], 0, Sin[\[Theta]]}, {0, 1, 
+       0}, {-Sin[\[Theta]], 0, Cos[\[Theta]]}}
+    zrot[\[Theta]_] := {{Cos[\[Theta]], -Sin[\[Theta]], 
+       0}, {Sin[\[Theta]], Cos[\[Theta]], 0}, {0, 0, 1}}
+    
+    (* Rotate a polycube about the a axis by \[Theta] degrees *)
+    (* NOTE: x = 1 | y = 2 | z = 3 *)
+    rotate[pc_, axis_, \[Theta]_] :=  
+     Dot[{xrot, yrot, zrot}[[axis]][\[Theta]], #] & /@ pc
 
 ### Complete Search
 The first step was to produce a 'minimum viable product', something that could technically complete the task, and would be fast to implement. This allowed me to quickly develop and test a way to find and remove duplicates, without worrying about runtime optimizations. Below is the function I wrote to generate polycube sets through a complete search of possibilities in *n* x *n* x *n* space. 
@@ -43,7 +60,7 @@ The first step was to produce a 'minimum viable product', something that could t
        res
        ]
        
-With this method, I was only able to generate polycube sets up to *n* = 3 cubes.
+The above code generates all permutations of *n* points within the space, and tests each one for uniqueness and validity. With this method, I was only able to generate polycube sets up to *n* = 3 cubes.
 
 ![3-cube set][2]
 
