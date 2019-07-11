@@ -1,5 +1,4 @@
 # Enumerating Polycubes
-##### *Created at the Wolfram High School Summer Camp*
 
 ## Introduction
 ### What Are Polycubes?
@@ -7,12 +6,11 @@ Polyomino tiles are 2-D tiles formed from a set of *n* square tiles. In this pro
 
 ![8-cube polycube][1]
 
-### Goals
-My goal over the course of this project was to enumerate complete sets of polycubes. That is, for a set of *n* cubes, I wanted to be able to generate a list of every possible arrangement.
+My goal over the course of this project was to enumerate complete sets of polycubes. That is, given *n* cubes, I wanted to be able to generate a list of every possible arrangement, and a count of how many exist. 
 
 ## Methods
 ### Complete Search
-When I begin a project, I like to first produce a 'minimum viable product', something that could technically complete a task, but will do it badly. That way I have data to check future results against, and a guarantee that there will be something to show for my efforts. The first thing I did was write a function to generate polycube sets through a complete search of possibilities in *n* x *n* x *n* space. 
+The first step was to produce a 'minimum viable product', something that could technically complete the task, and would be fast to implement. This allowed me to quickly develop and test a way to find and remove duplicates, without worrying about runtime optimizations. Below is the function I wrote to generate polycube sets through a complete search of possibilities in *n* x *n* x *n* space. 
 
     polycubeSet[n_Integer] := (
       Block[{allPoints, final, res}, 
@@ -91,12 +89,12 @@ By cutting out the processing of possibilities that aren't valid polycubes, this
 The number of distinct polycubes possible for *n* cubes.
 
 | n 	| polycubes 	|   	| n  	| polycubes 	|
-|:---:	|-----------:	|---	|:----:	|---------:	|
+|:---:	|-----------:	|---	|:----:	|---------:	    |
 | 1 	|         1 	|   	| 6  	|       166 	|
 | 2 	|         1 	|   	| 7  	|      1023 	|
 | 3 	|         2 	|   	| 8  	|      6922 	|
-| 4 	|         8 	|   	| 9  	|       - 	|
-| 5 	|        29 	|   	| 10 	|       - 	|
+| 4 	|         8 	|   	| 9  	|       - 	    |
+| 5 	|        29 	|   	| 10 	|       - 	    |
 
 ## Notebook
 The notebook containing my results can be found <a href="https://github.com/noelle-crawfish/Enumerating-Polycubes/tree/master/Final%20Project/Final%20Submission">here</a>.
