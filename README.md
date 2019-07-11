@@ -29,9 +29,9 @@ With this method, I was only able to generate sets up to *n* = 3.
 ![3-cube set][2]
 
 ### Confined Boxes Search
-While examining the shapes of the polycubes I was generating, I noticed that every polycube generated for a certain *n* could be fit inside a box of dimensions that summed to no more than *n* + 2. 
+While examining the shapes of the polycubes I was generating, I noticed that every polycube generated for a certain *n* could be fit inside a box of dimensions that summed to no more than *n* + 2. For example, the dimensions of a box containing an *n* = 3 polycube could be 1 x 1 x 3 or 1 x 2 x 2.
 
-In order to use this information to my advantage, I wrote a function that would generate a list of valid boxes, and then ran a complete search within each of them. 
+In order to use this information to my advantage, I wrote a function that would generate a list of valid boxes, and then run a complete search within each of them. 
 
     polycubeBoxSet[n_] := (
       Block[{grids, res, set},
@@ -57,7 +57,7 @@ A confined search proved to be much faster than a complete search, and allowed m
 ![5-cube set][3]
 
 ### Exploration Search
-This method is one I had considered from the start of my project to be a possible solution, but I didn't actually implement until later on due to worries about not finishing. However, it ended up being one of the simplest to implement since I didn't have to check the validity of each structure at the end.
+My final attempt (for now) was a method that worked by processing structures by 'generations'. The function generates a complete set for each *n* up to the desired value, and the proceeds to the next set by returning every form that can be obtained by adding one cube to any open location. Since the structures are built upon each other, this approach removes the need to check whether or not all cubes are connected in a given polycube.
     
     polycubeExploreSet[n_] := (
       Block[{new, pt, res},
@@ -78,7 +78,7 @@ This method is one I had considered from the start of my project to be a possibl
        Join[pc, {#}] & /@ (openConnections[#, t] & /@ pc // 
            DeleteDuplicates // Flatten[#, 1] &) 
        ])
-By cutting out the processing of possibilities that aren't valid polycubes, this algorithm managed to generate mcuh larger sets (up to *n* = 8, a set of 6922 distinct polycubes). Below are some of my favorites...
+By cutting out the processing of extra possibilities, this approach managed to generate much larger sets (up to *n* = 8, a set of 6922 distinct polycubes). Below are some of my favorites...
 
 ![Some 8-cube polycubes][4]
 ![Some 8-cube polycubes][5]
